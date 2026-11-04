@@ -3,1630 +3,1640 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Desenvolvimento de Lojas Shopify e Landing Pages de alta conversão. +100 lojas criadas, +40 landing pages. Especialista certificado Shopify Partner.">
-<meta name="theme-color" content="#ffffff">
-  <!-- Google tag (gtag.js) -->
+<meta name="description" content="Kevyn Jesus — desenvolvedor front-end para Shopify. Temas, componentes e páginas de produto sob medida: Liquid, JavaScript e performance.">
+<meta name="theme-color" content="#0A0A0B">
+<title>Kevyn Jesus — Desenvolvedor Front-end Shopify</title>
+<script>document.documentElement.classList.add('js');</script>
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kevyn Jesus — Desenvolvedor Front-end Shopify">
+<meta property="og:description" content="Temas, componentes e páginas de produto sob medida. Do Liquid ao último pixel.">
+<meta property="og:image" content="images/neobody.webp">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230A0A0B'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial' font-size='18' font-weight='700' fill='%23D7FF4A' text-anchor='middle'%3Ek%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTCVVH711H"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-QTCVVH711H');
 </script>
-<title>ive. — Shopify & Landing Pages</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap" rel="stylesheet">
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  --bg: #ffffff;
-  --bg-2: #f5f5f7;
-  --bg-3: #e8e8ed;
-  --text: #1d1d1f;
-  --text-2: #6e6e73;
-  --text-3: #a1a1a6;
-  --accent: #0071e3;
-  --accent-hover: #0077ed;
-  --border: rgba(0,0,0,0.08);
+  --bg: #0A0A0B;
+  --bg-2: #0E0E10;
+  --card: #111113;
+  --card-2: #151518;
+  --line: rgba(255,255,255,.09);
+  --line-2: rgba(255,255,255,.18);
+  --fg: #F2F2ED;
+  --muted: #9B9B94;
+  --dim: #6B6B64;
+  --accent: #D7FF4A;
+  --accent-soft: rgba(215,255,74,.12);
   --radius: 18px;
-  --font: 'Mona Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font: 'Mona Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --ease: cubic-bezier(.22,.7,.18,1);
 }
 
-html { scroll-behavior: smooth; background: var(--bg); }
+::selection { background: var(--accent); color: #0A0A0B; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
 
 body {
   font-family: var(--font);
   background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
+  color: var(--fg);
+  line-height: 1.55;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* ─── SCROLL PROGRESS BAR ─── */
-#scrollBar {
-  position: fixed; top: 0; left: 0; height: 2px;
-  background: linear-gradient(90deg, var(--accent), #5ac8fa);
-  z-index: 9999; width: 0%;
-  transition: width 0.08s linear;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 20%, transparent 78%);
 }
 
-/* ─── CURSOR GLOW (light) ─── */
-#cursorGlow {
-  position: fixed; pointer-events: none; z-index: 8999;
-  width: 480px; height: 480px; border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,113,227,0.06) 0%, transparent 65%);
-  transform: translate(-50%, -50%);
-  transition: opacity 0.5s ease;
-  opacity: 0;
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+svg { display: block; }
+
+.wrap { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+/* ─── PROGRESS ─── */
+#progress {
+  position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+  background: var(--accent); z-index: 999;
+  transition: width .08s linear;
 }
 
 /* ─── NAV ─── */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 52px;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid var(--border);
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: navDrop 0.7s cubic-bezier(0.22,1,0.36,1) both;
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 68px;
+  display: flex; align-items: center;
+  transition: background .35s var(--ease), border-color .35s var(--ease), backdrop-filter .35s;
+  border-bottom: 1px solid transparent;
 }
-@keyframes navDrop {
-  from { transform: translateY(-100%); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
+.nav.is-scrolled {
+  background: rgba(10,10,11,.72);
+  backdrop-filter: saturate(140%) blur(18px);
+  -webkit-backdrop-filter: saturate(140%) blur(18px);
+  border-bottom-color: var(--line);
 }
-header.scrolled { background: rgba(255,255,255,0.95); border-bottom-color: rgba(0,0,0,0.06); }
-
 .nav-inner {
-  width: 100%;
-  max-width: 980px;
-  padding: 0 22px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
 }
+.brand {
+  font-size: 19px; font-weight: 650; letter-spacing: -.03em;
+  display: flex; align-items: baseline; gap: 1px;
+}
+.brand span { color: var(--accent); }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  font-size: 13.5px; color: var(--muted); padding: 8px 12px; border-radius: 999px;
+  transition: color .2s, background .2s;
+}
+.nav-links a:hover { color: var(--fg); background: rgba(255,255,255,.05); }
+.nav-links a.is-active { color: var(--fg); }
+.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-status {
+  display: flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em;
+  color: var(--muted); text-transform: uppercase;
+}
+.dot-live {
+  width: 6px; height: 6px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 0 rgba(215,255,74,.6);
+  animation: pulse 2.4s infinite;
+}
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(215,255,74,.45); }
+  70% { box-shadow: 0 0 0 7px rgba(215,255,74,0); }
+  100% { box-shadow: 0 0 0 0 rgba(215,255,74,0); }
+}
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 40px; padding: 0 18px; border-radius: 999px;
+  font-size: 13.5px; font-weight: 550; letter-spacing: -.01em;
+  border: 1px solid var(--line-2); color: var(--fg);
+  transition: background .25s var(--ease), color .25s, border-color .25s, transform .25s var(--ease);
+  white-space: nowrap;
+}
+.btn:hover { background: rgba(255,255,255,.07); transform: translateY(-1px); }
+.btn-accent { background: var(--accent); color: #0A0A0B; border-color: var(--accent); }
+.btn-accent:hover { background: #E4FF7A; border-color: #E4FF7A; }
+.nav-cta { display: inline-flex; }
 
-.nav-logo {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--text);
-  text-decoration: none;
-  letter-spacing: -0.3px;
+.nav-burger {
+  display: none; width: 40px; height: 40px; flex: 0 0 auto;
+  border: 1px solid var(--line-2); border-radius: 999px;
+  align-items: center; justify-content: center; position: relative;
 }
+.nav-burger i {
+  position: absolute; left: 50%; top: 50%; width: 14px; height: 1.5px;
+  background: var(--fg); transform: translate(-50%, -50%);
+  transition: transform .3s var(--ease), opacity .3s;
+}
+.nav-burger i:first-child { transform: translate(-50%, calc(-50% - 4px)); }
+.nav-burger i:last-child { transform: translate(-50%, calc(-50% + 4px)); }
+.nav-burger[aria-expanded="true"] i:first-child { transform: translate(-50%, -50%) rotate(45deg); }
+.nav-burger[aria-expanded="true"] i:last-child { transform: translate(-50%, -50%) rotate(-45deg); }
 
-nav {
-  display: flex;
-  gap: 36px;
-  align-items: center;
+.mobile-menu {
+  position: fixed; top: 68px; left: 0; right: 0; z-index: 99;
+  background: rgba(10,10,11,.97);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 18px 26px;
+  opacity: 0; transform: translateY(-10px); pointer-events: none;
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
 }
-
-nav a {
-  text-decoration: none;
-  color: var(--text-2);
-  font-size: 13px;
-  font-weight: 400;
-  transition: color 0.2s;
-  position: relative;
+.mobile-menu.open { opacity: 1; transform: none; pointer-events: auto; }
+.mobile-menu a {
+  display: block; padding: 14px 0; font-size: 20px; letter-spacing: -.02em;
+  border-bottom: 1px solid var(--line);
 }
-nav a:hover { color: var(--text); }
-
-/* Nav active dot */
-.nav-dot {
-  position: absolute; bottom: -10px; left: 50%;
-  transform: translateX(-50%) scale(0);
-  width: 4px; height: 4px; border-radius: 50%;
-  background: var(--accent);
-  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
-}
-nav a.active .nav-dot { transform: translateX(-50%) scale(1); }
-
-.nav-cta {
-  font-size: 13px;
-  color: var(--accent) !important;
-  font-weight: 500;
-}
+.mobile-menu a:last-of-type { border-bottom: none; }
+.mobile-menu .btn { width: 100%; margin-top: 14px; height: 44px; }
 
 /* ─── HERO ─── */
-.hero {
-  padding-top: 140px;
-  padding-bottom: 100px;
-  text-align: center;
-  max-width: 980px;
-  margin: 0 auto;
-  padding-left: 22px;
-  padding-right: 22px;
-  position: relative;
-  will-change: transform, opacity, filter;
+.hero { padding: 150px 0 0; position: relative; }
+.hero-glow {
+  position: absolute; top: -120px; right: -120px; width: 720px; height: 720px;
+  background: radial-gradient(circle, rgba(215,255,74,.09), transparent 62%);
+  pointer-events: none; filter: blur(20px); z-index: 0;
 }
-
-/* Subtle light orbs behind hero text */
-.hero-bg {
-  position: absolute; inset: 0; pointer-events: none; z-index: 0;
-  overflow: hidden;
+.hero-top {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 30px;
 }
-.hero-orb {
-  position: absolute; border-radius: 50%; filter: blur(80px);
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 13px 6px 11px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--muted);
+  background: rgba(255,255,255,.02);
 }
-.hero-orb-1 {
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(0,113,227,0.07) 0%, transparent 70%);
-  top: -80px; left: 50%; transform: translateX(-50%);
-  animation: orbFloat1 9s ease-in-out infinite;
+.hero-grid {
+  display: grid; grid-template-columns: minmax(0,1.08fr) minmax(0,.92fr);
+  gap: 56px; align-items: center;
 }
-.hero-orb-2 {
-  width: 320px; height: 320px;
-  background: radial-gradient(circle, rgba(0,180,100,0.05) 0%, transparent 70%);
-  bottom: 0; right: 5%;
-  animation: orbFloat2 11s ease-in-out infinite;
+.hero-grid > * { min-width: 0; }
+h1 {
+  font-size: clamp(40px, 5.6vw, 74px);
+  line-height: .98;
+  letter-spacing: -.045em;
+  font-weight: 560;
+  margin-bottom: 26px;
 }
-@keyframes orbFloat1 {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%     { transform: translateX(-50%) translateY(-24px); }
-}
-@keyframes orbFloat2 {
-  0%,100% { transform: translateY(0); }
-  50%     { transform: translateY(-16px); }
-}
-
-.hero-content { position: relative; z-index: 1; }
-
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  padding: 6px 16px;
-  background: rgba(0,113,227,0.07);
-  border: 1px solid rgba(0,113,227,0.18);
-  border-radius: 100px;
-  opacity: 0;
-  animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
-}
-.eyebrow-dot {
-  width: 6px; height: 6px; border-radius: 50%;
-  background: var(--accent);
-  animation: dotPulse 2.2s ease-in-out infinite;
-}
-@keyframes dotPulse {
-  0%,100% { opacity: 1; transform: scale(1); }
-  50%     { opacity: 0.4; transform: scale(0.7); }
-}
-
-.hero h1 {
-  font-size: clamp(48px, 7vw, 80px);
-  font-weight: 800;
-  line-height: 1.06;
-  letter-spacing: -0.04em;
-  color: var(--text);
-  margin-bottom: 22px;
-  opacity: 0;
-  animation: fadeUp 0.01s 0.2s forwards;
-}
-
-.hero h1 em {
-  font-style: normal;
-  color: var(--text-2);
-  font-weight: 300;
-}
-
-/* Word reveal spans */
-.hero-word { display: inline-block; overflow: hidden; vertical-align: bottom; }
-.hero-word-inner {
-  display: inline-block; opacity: 0; transform: translateY(105%);
-  animation: wordUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards;
-}
-@keyframes wordUp { to { opacity: 1; transform: translateY(0); } }
-
+h1 em { font-style: normal; color: var(--accent); }
 .hero-sub {
-  font-size: 19px;
-  color: var(--text-2);
-  font-weight: 400;
-  max-width: 560px;
-  margin: 0 auto 40px;
-  line-height: 1.55;
-  opacity: 0;
-  animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 0.9s forwards;
+  font-size: clamp(15.5px, 1.5vw, 17.5px);
+  color: var(--muted);
+  max-width: 46ch;
+  line-height: 1.62;
 }
+.hero-sub strong { color: var(--fg); font-weight: 550; }
+.hero-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 34px; }
+.hero-actions .btn { height: 46px; padding: 0 22px; font-size: 14.5px; }
+.hero-meta {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  margin-top: 46px; padding-top: 22px; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 11px; color: var(--dim); letter-spacing: .02em;
+}
+.hero-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.hero-meta span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--dim); }
+.hero-meta span:first-child::before { display: none; }
 
-.hero-actions {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.8s cubic-bezier(0.22,1,0.36,1) 1.05s forwards;
-}
-
-/* Scroll hint */
-.scroll-hint {
-  position: absolute; bottom: 24px; left: 0; right: 0;
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  opacity: 0; animation: fadeUp 1s ease 1.6s forwards;
-}
-.scroll-hint span { font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); }
-.scroll-line {
-  width: 1px; height: 32px;
-  background: linear-gradient(to bottom, var(--text-3), transparent);
-  animation: scrollPulse 2s ease-in-out infinite;
-}
-@keyframes scrollPulse {
-  0%,100% { opacity: 0.4; transform: scaleY(1);   }
-  50%     { opacity: 1;   transform: scaleY(1.25); }
-}
-
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 14px 28px;
-  background: var(--accent);
-  color: #fff;
-  border-radius: 980px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: background 0.2s, box-shadow 0.3s;
-  box-shadow: 0 0 0 0 rgba(0,113,227,0.3);
-  will-change: transform;
-}
-.btn-primary:hover {
-  background: var(--accent-hover);
-  box-shadow: 0 0 0 6px rgba(0,113,227,0.1), 0 10px 36px rgba(0,113,227,0.22);
-}
-
-.btn-secondary {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 14px 28px;
-  background: rgba(0,0,0,0.04);
-  border: 1px solid rgba(0,0,0,0.1);
-  color: var(--text);
-  border-radius: 980px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  transition: background 0.2s, border-color 0.2s;
-  backdrop-filter: blur(8px);
-}
-.btn-secondary:hover { background: rgba(0,0,0,0.07); border-color: rgba(0,0,0,0.15); }
-
-/* ─── STATS ─── */
-.stats-band {
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 60px 22px;
-}
-
-.stats-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  display: flex;
-  gap: 2px;
-  background: var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
-.stat-item {
-  flex: 1;
-  text-align: center;
-  padding: 44px 16px;
-  background: var(--bg);
-  transition: background 0.3s;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease, background 0.3s;
-}
-.stat-item:hover { background: var(--bg-2); }
-.stat-item.revealed { opacity: 1; transform: translateY(0); }
-.stat-item:nth-child(2) { transition-delay: 0.1s; }
-.stat-item:nth-child(3) { transition-delay: 0.2s; }
-
-.stat-num {
-  font-size: 52px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: var(--text);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.stat-lbl {
-  font-size: 13px;
-  color: var(--text-2);
-  letter-spacing: -0.01em;
-}
-
-/* ─── SECTION COMMON ─── */
-.section {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 120px 22px;
-}
-
-.section-label {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 14px;
-  display: block;
-}
-
-.section-title {
-  font-size: clamp(32px, 5vw, 52px);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  color: var(--text);
-  margin-bottom: 16px;
-}
-
-.section-body {
-  font-size: 17px;
-  color: var(--text-2);
-  max-width: 560px;
-  line-height: 1.6;
-}
-
-/* ─── SERVICES — BENTO ─── */
-#servicos {
-  background: var(--bg-2);
-  max-width: 100%;
-  padding: 0;
-}
-#servicos .section-inner {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 120px 22px;
-}
-
-.services-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-.services-header .section-body { margin: 0 auto; }
-
-.bento-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  background: var(--border);
-  border-radius: calc(var(--radius) + 2px);
-  overflow: hidden;
-}
-
-.bento-card {
-  background: var(--bg);
-  padding: 52px 48px;
-  position: relative;
-  overflow: hidden;
-  transform-style: preserve-3d;
-  transition: background 0.3s, transform 0.12s ease-out, box-shadow 0.3s;
-  will-change: transform;
-}
-
-/* Radial glow on hover */
-.bento-card::before {
-  content: ''; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 55% 50% at 50% 0%, rgba(0,113,227,0.05) 0%, transparent 70%);
-  opacity: 0; transition: opacity 0.4s; pointer-events: none;
-}
-.bento-card:hover { background: #fafafa; }
-.bento-card:hover::before { opacity: 1; }
-.bento-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.08); }
-
-/* Shimmer on hover */
-.bento-card::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(110deg, transparent 38%, rgba(255,255,255,0.6) 50%, transparent 62%);
-  transform: translateX(-120%); pointer-events: none;
-  transition: transform 0s;
-}
-.bento-card:hover::after { transform: translateX(120%); transition: transform 0.6s ease; }
-
-/* Wide card — 3rd service */
-.bento-card.wide {
-  grid-column: 1 / -1;
-  padding: 60px 56px;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 60px;
-  align-items: center;
-}
-.bento-card.wide::before {
-  background: radial-gradient(ellipse 40% 90% at 10% 50%, rgba(0,200,80,0.04) 0%, transparent 70%);
-}
-
-.service-num {
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-3);
-  letter-spacing: 0.04em;
-  margin-bottom: 24px;
-}
-
-.bento-card h3 {
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  color: var(--text);
-  margin-bottom: 14px;
-  line-height: 1.15;
-}
-
-.bento-card > p, .card-desc {
-  font-size: 15px;
-  color: var(--text-2);
-  line-height: 1.6;
-  margin-bottom: 40px;
-}
-
-.features-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 48px;
-  flex: 1;
-}
-
-.features-list li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 14px;
-  color: var(--text-2);
-  opacity: 0;
-  transform: translateX(-8px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.bento-card.card-vis .features-list li { opacity: 1; transform: translateX(0); }
-.bento-card.card-vis .features-list li:nth-child(1) { transition-delay: 0.07s; }
-.bento-card.card-vis .features-list li:nth-child(2) { transition-delay: 0.14s; }
-.bento-card.card-vis .features-list li:nth-child(3) { transition-delay: 0.21s; }
-.bento-card.card-vis .features-list li:nth-child(4) { transition-delay: 0.28s; }
-.bento-card.card-vis .features-list li:nth-child(5) { transition-delay: 0.35s; }
-
-.check {
-  width: 18px;
-  height: 18px;
-  background: #1d1d1f;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-.check svg { width: 10px; height: 10px; }
-
-.service-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--accent);
-  text-decoration: none;
-  transition: gap 0.25s cubic-bezier(0.22,1,0.36,1);
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-.service-cta:hover { gap: 12px; }
-
-/* Icon ring for 3rd card */
-.bento-visual {
-  width: 160px; height: 160px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.icon-ring {
-  width: 140px; height: 140px; border-radius: 38px;
-  background: linear-gradient(145deg, var(--bg-2) 0%, var(--bg) 100%);
-  border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 52px;
-  box-shadow: 0 24px 56px rgba(0,0,0,0.1);
-  position: relative;
-  animation: iconFloat 5s ease-in-out infinite;
-}
-@keyframes iconFloat {
-  0%,100% { transform: translateY(0) rotate(-1deg); }
-  50%     { transform: translateY(-8px) rotate(1deg); }
-}
-.icon-ring::before {
-  content: ''; position: absolute; inset: -1px;
-  border-radius: 39px;
-  background: linear-gradient(135deg, rgba(0,113,227,0.3), transparent 50%, rgba(0,200,80,0.15));
-  z-index: -1;
-}
-
-/* ─── ABOUT ─── */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-}
-
-.about-text .section-body { margin-bottom: 52px; }
-
-.certs-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-top: 1px solid var(--border);
-}
-
-.cert-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--border);
-  opacity: 0;
-  transform: translateX(-16px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.cert-row.revealed { opacity: 1; transform: translateX(0); }
-.cert-row:nth-child(2) { transition-delay: 0.1s; }
-.cert-row:nth-child(3) { transition-delay: 0.2s; }
-
-.cert-row-title { font-size: 15px; font-weight: 600; color: var(--text); }
-.cert-row-sub { font-size: 13px; color: var(--text-2); margin-top: 2px; }
-
-.cert-badge {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #1d1d1f;
-  background: var(--bg-3);
-  padding: 5px 10px;
-  border-radius: 4px;
-}
-
-.about-visual {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.9s ease 0.2s, transform 0.9s ease 0.2s;
-  position: sticky;
-  top: 72px;
-}
-.about-visual.revealed { opacity: 1; transform: translateY(0); }
-
-.about-photo-wrap {
-  aspect-ratio: 3/4;
-  border-radius: 28px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 100px;
-  padding: 2px;
-  /* Animated gradient border */
-  background: conic-gradient(from var(--angle, 0deg),
-    rgba(0,113,227,0.5) 0deg,
-    rgba(0,200,80,0.25) 120deg,
-    rgba(100,160,255,0.2) 200deg,
-    rgba(0,113,227,0.5) 360deg);
-  animation: rotateBorder 6s linear infinite;
-}
-@property --angle {
-  syntax: '<angle>'; inherits: true; initial-value: 0deg;
-}
-@keyframes rotateBorder { to { --angle: 360deg; } }
-
-.photo-inner {
-  width: 100%; height: 100%; border-radius: 26px; overflow: hidden;
-  background: var(--bg-2);
-  display: flex; align-items: center; justify-content: center;
-  font-size: 80px;
-  animation: photoFloat 5s ease-in-out infinite;
+/* code card */
+.code-card {
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  background: linear-gradient(180deg, #131316, #0D0D0F);
+  box-shadow: 0 30px 80px -40px rgba(0,0,0,.9);
   position: relative;
 }
-@keyframes photoFloat {
-  0%,100% { transform: translateY(0) scale(1); }
-  50%     { transform: translateY(-6px) scale(1.008); }
+.code-card::after {
+  content: ""; position: absolute; inset: 0; border-radius: 14px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06); pointer-events: none;
 }
-.photo-inner img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-inner::after {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.18) 100%);
-  border-radius: 26px; z-index: 1; pointer-events: none;
+.code-head {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 14px; border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.02);
+}
+.code-dots { display: flex; gap: 6px; }
+.code-dots i { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.14); display: block; }
+.code-tab {
+  font-family: var(--mono); font-size: 11px; color: var(--muted);
+  margin-left: 6px;
+}
+.code-tab b { color: var(--fg); font-weight: 500; }
+.code-body {
+  padding: 20px 18px 22px; overflow-x: auto;
+  font-family: var(--mono); font-size: 12.2px; line-height: 1.95;
+}
+.cl { display: flex; gap: 16px; white-space: pre; }
+.ln { color: #3E3E42; text-align: right; width: 14px; flex: 0 0 auto; user-select: none; }
+.tok-k { color: var(--accent); }
+.tok-s { color: var(--fg); }
+.tok-f { color: #8AB4FF; }
+.tok-c { color: #56565C; }
+.tok-n { color: #FFB86B; }
+.code-foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 16px; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 10.5px; color: var(--dim);
+  background: rgba(255,255,255,.015);
+}
+.code-foot .ok { color: var(--accent); }
+
+.hero-foot {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; margin-top: 74px;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: var(--line);
+}
+.hero-foot > div {
+  background: var(--bg); padding: 26px 4px 26px 0;
+  display: flex; align-items: baseline; gap: 12px;
+}
+.hero-foot .num {
+  font-size: clamp(26px, 3vw, 36px); font-weight: 500; letter-spacing: -.04em; line-height: 1;
+}
+.hero-foot .lbl {
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--dim);
+}
+
+/* ─── MARQUEE ─── */
+.ticker {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0; overflow: hidden; position: relative;
+  background: var(--bg-2);
+}
+.ticker::before, .ticker::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 120px; z-index: 2; pointer-events: none;
+}
+.ticker::before { left: 0; background: linear-gradient(90deg, var(--bg-2), transparent); }
+.ticker::after { right: 0; background: linear-gradient(270deg, var(--bg-2), transparent); }
+.ticker-track {
+  display: flex; gap: 34px; width: max-content;
+  animation: ticker 46s linear infinite;
+}
+.ticker-track span {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--dim); display: inline-flex; align-items: center; gap: 34px;
+  white-space: nowrap;
+}
+.ticker-track span::after { content: "✦"; color: rgba(215,255,74,.5); font-size: 9px; }
+@keyframes ticker { to { transform: translateX(-50%); } }
+
+/* ─── SECTION ─── */
+section { padding: 118px 0; position: relative; }
+.section-head { margin-bottom: 52px; }
+.kicker {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--dim); margin-bottom: 20px;
+}
+.kicker b { color: var(--accent); font-weight: 500; }
+.kicker::after { content: ""; height: 1px; width: 64px; background: var(--line-2); }
+h2 {
+  font-size: clamp(31px, 4.4vw, 56px);
+  line-height: 1.02; letter-spacing: -.04em; font-weight: 550;
+  max-width: 20ch;
+}
+.section-sub {
+  margin-top: 20px; color: var(--muted); max-width: 58ch;
+  font-size: 15.5px; line-height: 1.65;
+}
+.head-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+
+/* ─── WORK ─── */
+#trabalho { border-top: 1px solid var(--line); }
+.work-grid {
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px;
+}
+.work-card { grid-column: span 6; }
+
+.work-link {
+  display: block; border: 1px solid var(--line); border-radius: var(--radius);
+  background: var(--card); overflow: hidden;
+  transition: border-color .35s var(--ease), transform .35s var(--ease), background .35s;
+}
+.work-link:hover { border-color: var(--line-2); transform: translateY(-3px); background: var(--card-2); }
+.shot {
+  position: relative; aspect-ratio: 16 / 10.4; overflow: hidden;
+  background: #0C0C0E; border-bottom: 1px solid var(--line);
+}
+.shot img {
+  width: 100%; height: 100%; object-fit: cover; object-position: top center;
+  transition: transform .7s var(--ease), filter .5s;
+  filter: saturate(.94);
+}
+.work-link:hover .shot img { transform: scale(1.035); filter: saturate(1.02); }
+.shot::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(10,10,11,.5));
+  pointer-events: none;
+}
+.shot-tag {
+  position: absolute; left: 14px; top: 14px; z-index: 2;
+  font-family: var(--mono); font-size: 10px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--fg);
+  background: rgba(10,10,11,.62); border: 1px solid rgba(255,255,255,.16);
+  padding: 5px 10px; border-radius: 999px;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.shot-open {
+  position: absolute; right: 14px; bottom: 14px; z-index: 2;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .04em;
+  background: var(--accent); color: #0A0A0B; padding: 7px 12px; border-radius: 999px;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .3s var(--ease), transform .3s var(--ease);
+}
+.work-link:hover .shot-open, .work-link:focus-visible .shot-open { opacity: 1; transform: translateY(0); }
+.work-info { padding: 20px 22px 22px; }
+.work-top { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+.work-idx { font-family: var(--mono); font-size: 10.5px; color: var(--dim); }
+.work-name { font-size: 21px; font-weight: 560; letter-spacing: -.025em; }
+.work-cat {
+  font-family: var(--mono); font-size: 10.5px; color: var(--dim);
+  text-transform: uppercase; letter-spacing: .07em; margin-top: 4px;
+}
+.work-desc { margin-top: 14px; color: var(--muted); font-size: 13.8px; line-height: 1.6; max-width: 46ch; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; list-style: none; }
+.chips li {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .04em;
+  color: var(--muted); border: 1px solid var(--line);
+  padding: 4px 8px; border-radius: 5px;
+}
+
+.more-list { margin-top: 30px; border-top: 1px solid var(--line); }
+.more-row {
+  display: grid; grid-template-columns: 1fr 1.5fr auto; gap: 20px; align-items: center;
+  padding: 19px 6px; border-bottom: 1px solid var(--line);
+  transition: background .25s, padding .25s;
+}
+.more-row:hover { background: rgba(255,255,255,.025); padding-left: 14px; }
+.more-name { font-size: 15.5px; font-weight: 500; letter-spacing: -.01em; }
+.more-name span { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-left: 10px; text-transform: uppercase; letter-spacing: .06em; }
+.more-desc { color: var(--dim); font-size: 13px; }
+.more-arrow { color: var(--dim); font-size: 14px; transition: color .2s, transform .25s; }
+.more-row:hover .more-arrow { color: var(--accent); transform: translate(2px, -2px); }
+
+/* ─── COMPONENTES ─── */
+#componentes { border-top: 1px solid var(--line); background: var(--bg-2); }
+.tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 34px; }
+.tab {
+  display: inline-flex; align-items: center; gap: 8px;
+  height: 38px; padding: 0 15px; border-radius: 999px;
+  border: 1px solid var(--line); color: var(--muted);
+  font-size: 13px; transition: all .25s var(--ease);
+}
+.tab:hover { color: var(--fg); border-color: var(--line-2); }
+.tab[aria-selected="true"] {
+  background: var(--accent); border-color: var(--accent); color: #0A0A0B; font-weight: 550;
+}
+.tab .t-num { font-family: var(--mono); font-size: 10px; opacity: .6; }
+
+.demo-grid { display: grid; grid-template-columns: 1.04fr .96fr; gap: 48px; align-items: start; }
+.demo-panel[hidden] { display: none; }
+
+.browser {
+  border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+  background: #0C0C0E; box-shadow: 0 40px 90px -50px #000;
+  min-height: 420px; display: flex; flex-direction: column;
+}
+.browser-body { flex: 1; }
+.browser-bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 12px; border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.025);
+}
+.browser-bar i { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.15); }
+.browser-url {
+  flex: 1; margin-left: 8px; text-align: center;
+  font-family: var(--mono); font-size: 10px; color: var(--dim);
+  background: rgba(255,255,255,.04); border-radius: 5px; padding: 5px 10px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.browser-body { padding: 22px; background: #F4F1EA; color: #16160F; }
+
+/* kit demo */
+.kit-demo { display: flex; flex-direction: column; }
+.kit-foot {
+  margin-top: auto; padding-top: 18px;
+  display: flex; gap: 14px; flex-wrap: wrap;
+  font-size: 8.5px; color: #77776C;
+}
+.kit-foot span { display: inline-flex; align-items: center; gap: 5px; }
+.kit-foot span::before { content: "✓"; color: #2E7D32; font-size: 8px; }
+.kit-head { display: flex; gap: 14px; align-items: center; margin-bottom: 20px; }
+.kit-thumb {
+  width: 64px; height: 76px; flex: 0 0 auto; border-radius: 8px;
+  background: linear-gradient(160deg, #DCE9F2, #B9CFDF);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: #1B2A36; text-align: center; line-height: 1.1;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+}
+.kit-thumb b { font-size: 8px; letter-spacing: .02em; }
+.kit-thumb small { font-size: 5.5px; letter-spacing: .18em; margin-top: 3px; opacity: .6; }
+.kit-eyebrow {
+  font-family: var(--mono); font-size: 8.5px; letter-spacing: .1em;
+  text-transform: uppercase; color: #2E7D32; font-weight: 500;
+}
+.kit-title { font-size: 15.5px; font-weight: 650; letter-spacing: -.02em; line-height: 1.25; margin: 3px 0 5px; }
+.kit-rating { font-size: 9.5px; color: #6B6B62; }
+.kit-rating b { color: #C79A2E; letter-spacing: 1px; }
+.kit-label { font-size: 10.5px; font-weight: 600; margin-bottom: 9px; }
+.kit-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
+.kit-opt {
+  position: relative; border: 1.5px solid rgba(0,0,0,.13); border-radius: 9px;
+  background: #fff; padding: 10px 6px 9px; text-align: center;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.kit-opt:hover { border-color: rgba(0,0,0,.3); }
+.kit-opt.is-on {
+  border-color: #16160F; box-shadow: 0 0 0 1px #16160F inset;
+}
+.kit-opt .q { font-size: 10px; font-weight: 650; display: block; }
+.kit-opt .p { font-size: 11px; font-weight: 650; display: block; margin-top: 2px; }
+.kit-opt .e { font-size: 8px; color: #77776C; display: block; margin-top: 1px; }
+.kit-opt .tag {
+  position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+  background: #16160F; color: #fff; font-size: 6.5px; letter-spacing: .08em;
+  text-transform: uppercase; padding: 2px 6px; border-radius: 999px; white-space: nowrap;
+}
+.kit-opt.hot .tag { background: #D7FF4A; color: #16160F; }
+.kit-save-line {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-top: 13px; padding-top: 11px; border-top: 1px dashed rgba(0,0,0,.14);
+  font-size: 10px; color: #5C5C52;
+}
+.kit-save-line b { font-size: 13px; color: #16160F; }
+.kit-save { color: #2E7D32; font-weight: 600; font-size: 9.5px; }
+.kit-add {
+  width: 100%; margin-top: 11px; height: 38px; border-radius: 8px;
+  background: #16160F; color: #fff; font-size: 11.5px; font-weight: 600;
+  transition: background .2s, transform .15s;
+}
+.kit-add:hover { background: #2C2C22; }
+.kit-add:active { transform: scale(.99); }
+.kit-add.done { background: #2E7D32; }
+
+/* cart demo */
+.cart-demo { background: #F4F1EA; }
+.cart-title { font-size: 13px; font-weight: 650; letter-spacing: -.01em; margin-bottom: 14px; display: flex; justify-content: space-between; }
+.cart-title span { font-family: var(--mono); font-size: 9px; color: #77776C; font-weight: 400; }
+.cart-item { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(0,0,0,.08); }
+.cart-thumb { width: 36px; height: 36px; border-radius: 6px; flex: 0 0 auto; }
+.cart-item .ci-thumb-1 { background: linear-gradient(150deg, #F6C7B8, #E99C82); }
+.cart-item .ci-thumb-2 { background: linear-gradient(150deg, #D9E3C8, #B6C79E); }
+.cart-item .ci-thumb-3 { background: linear-gradient(150deg, #E8DDF5, #C9B4E4); }
+.cart-item .ci-name { font-size: 10.5px; font-weight: 550; line-height: 1.3; }
+.cart-item .ci-sub { font-size: 8.5px; color: #77776C; margin-top: 1px; }
+.cart-item .ci-price { margin-left: auto; font-size: 10px; font-weight: 600; white-space: nowrap; }
+.cart-item.gift { color: #2E7D32; }
+.cart-item.gift .ci-price { color: #2E7D32; }
+.cart-coupon { display: flex; gap: 6px; margin: 13px 0 4px; }
+.cart-coupon input {
+  flex: 1; height: 32px; border: 1px solid rgba(0,0,0,.16); border-radius: 6px;
+  background: #fff; padding: 0 9px; font: inherit; font-size: 10px; color: #16160F;
+  outline: none; transition: border-color .2s;
+}
+.cart-coupon input:focus { border-color: #16160F; }
+.cart-coupon button {
+  height: 32px; padding: 0 12px; border-radius: 6px; background: #16160F; color: #fff;
+  font-size: 10px; font-weight: 600;
+}
+.cart-hint { font-size: 8.5px; color: #77776C; min-height: 13px; }
+.cart-hint.ok { color: #2E7D32; }
+.cart-hint.err { color: #C0392B; }
+.cart-total { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.12); }
+.cart-total .row { display: flex; justify-content: space-between; font-size: 9.5px; color: #5C5C52; padding: 2px 0; }
+.cart-total .row.discount { color: #2E7D32; }
+.cart-total .row.big { margin-top: 5px; font-size: 12.5px; color: #16160F; font-weight: 700; }
+.cart-checkout { width: 100%; margin-top: 11px; height: 36px; border-radius: 7px; background: #2E7D32; color: #fff; font-size: 11px; font-weight: 600; }
+
+/* search demo */
+.search-box { position: relative; }
+.search-box input {
+  width: 100%; height: 40px; border: 1px solid rgba(0,0,0,.15); border-radius: 8px;
+  background: #fff; padding: 0 12px 0 36px; font: inherit; font-size: 11px; color: #16160F;
+  outline: none; transition: border-color .2s, box-shadow .2s;
+}
+.search-box input:focus { border-color: #16160F; box-shadow: 0 0 0 3px rgba(22,22,15,.06); }
+.search-ico { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; stroke: #77776C; }
+.search-count { font-family: var(--mono); font-size: 8.5px; color: #77776C; margin: 9px 0 6px; text-transform: uppercase; letter-spacing: .06em; }
+.search-results { max-height: 178px; overflow-y: auto; margin: 0 -4px; padding: 0 4px; }
+.search-row { display: flex; align-items: center; gap: 9px; padding: 7px 4px; border-bottom: 1px solid rgba(0,0,0,.07); }
+.search-row:last-child { border-bottom: none; }
+.sr-thumb { width: 28px; height: 28px; border-radius: 5px; flex: 0 0 auto; }
+.sr-name { font-size: 10px; font-weight: 550; line-height: 1.3; }
+.sr-cat { font-size: 8px; color: #77776C; }
+.sr-price { margin-left: auto; font-size: 9.5px; font-weight: 600; }
+.search-empty { text-align: center; padding: 18px 0; font-size: 10px; color: #77776C; }
+
+/* demo copy */
+.demo-copy h3 { font-size: clamp(24px, 2.6vw, 34px); letter-spacing: -.035em; font-weight: 550; line-height: 1.08; margin-bottom: 14px; }
+.demo-copy p { color: var(--muted); font-size: 14.5px; line-height: 1.65; max-width: 42ch; }
+.demo-list { list-style: none; margin-top: 22px; display: grid; gap: 10px; }
+.demo-list li {
+  display: flex; gap: 10px; align-items: flex-start;
+  font-size: 13.5px; color: var(--fg);
+}
+.demo-list li::before {
+  content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+  margin-top: 8px; flex: 0 0 auto;
+}
+.demo-note {
+  margin-top: 28px; padding: 14px 16px; border: 1px solid var(--line);
+  border-radius: 10px; font-family: var(--mono); font-size: 10px;
+  color: var(--dim); line-height: 1.8; background: rgba(255,255,255,.02);
+}
+.demo-note b { color: var(--accent); font-weight: 500; }
+
+/* ─── PROCESSO ─── */
+#processo { border-top: 1px solid var(--line); }
+.process { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.step { background: var(--bg); padding: 28px 22px 34px 0; }
+.step:not(:first-child) { padding-left: 22px; }
+.step-num { font-family: var(--mono); font-size: 10.5px; color: var(--accent); letter-spacing: .06em; display: block; margin-bottom: 34px; }
+.step h3 { font-size: 17px; font-weight: 560; letter-spacing: -.02em; margin-bottom: 9px; }
+.step p { color: var(--dim); font-size: 13px; line-height: 1.62; }
+
+.stack-row {
+  display: grid; grid-template-columns: 200px 1fr; gap: 30px;
+  align-items: start; margin-top: 54px;
+}
+.stack-title { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); padding-top: 6px; }
+.stack-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.stack-tags span {
+  font-size: 13px; padding: 7px 13px; border: 1px solid var(--line);
+  border-radius: 999px; color: var(--muted); transition: all .25s;
+}
+.stack-tags span:hover { color: var(--fg); border-color: var(--line-2); background: rgba(255,255,255,.03); }
+
+/* ─── SOBRE ─── */
+#sobre { border-top: 1px solid var(--line); }
+.about { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: start; }
+.about-photo { position: relative; }
+.about-photo img {
+  width: 100%; height: auto; aspect-ratio: 4/4.9; object-fit: cover; object-position: center 40%; border-radius: 14px;
+  filter: saturate(.92) contrast(1.02);
+}
+.about-photo::after {
+  content: ""; position: absolute; inset: 12px -12px 16px 12px;
+  border: 1px solid rgba(215,255,74,.35); border-radius: 14px; z-index: -1;
+}
+.photo-cap {
+  display: flex; justify-content: space-between; margin-top: 14px;
+  font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing: .04em;
+}
+.about-body .kicker { margin-bottom: 16px; }
+.about-body p { color: var(--muted); font-size: 15.5px; line-height: 1.7; margin-top: 18px; max-width: 56ch; }
+.about-body p strong { color: var(--fg); font-weight: 550; }
+.facts { margin-top: 40px; border-top: 1px solid var(--line); }
+.fact {
+  display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;
+  padding: 16px 0; border-bottom: 1px solid var(--line);
+}
+.fact-t { font-size: 14.5px; font-weight: 500; letter-spacing: -.01em; }
+.fact-s { font-family: var(--mono); font-size: 10px; color: var(--dim); margin-top: 3px; }
+.fact-b {
+  font-family: var(--mono); font-size: 9.5px; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--accent); border: 1px solid rgba(215,255,74,.28);
+  padding: 4px 9px; border-radius: 999px; white-space: nowrap;
 }
 
 /* ─── FAQ ─── */
-#faq { background: var(--bg-2); max-width: 100%; padding: 0; }
-#faq .section-inner {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 120px 22px;
+#faq { border-top: 1px solid var(--line); }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+.faq-item { border-top: 1px solid var(--line); }
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 21px 0; text-align: left;
+  font-size: 15px; font-weight: 500; letter-spacing: -.01em; color: var(--fg);
+  transition: color .2s;
 }
+.faq-q:hover { color: var(--accent); }
+.faq-ico { flex: 0 0 auto; width: 14px; height: 14px; position: relative; }
+.faq-ico::before, .faq-ico::after {
+  content: ""; position: absolute; background: currentColor; transition: transform .3s var(--ease), opacity .3s;
+}
+.faq-ico::before { left: 0; top: 6px; width: 14px; height: 1.5px; }
+.faq-ico::after { left: 6px; top: 0; width: 1.5px; height: 14px; }
+.faq-item.is-open .faq-ico::after { transform: rotate(90deg); opacity: 0; }
+.faq-a { overflow: hidden; max-height: 0; transition: max-height .4s var(--ease); }
+.faq-a p { padding: 0 34px 22px 0; color: var(--dim); font-size: 13.5px; line-height: 1.68; }
 
-.faq-header { text-align: center; margin-bottom: 80px; }
-.faq-header .section-body { margin: 0 auto; }
-
-.faq-cols {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0 48px;
+/* ─── CONTATO ─── */
+#contato { border-top: 1px solid var(--line); padding-bottom: 0; }
+.contact-card {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--line); border-radius: 24px;
+  background: linear-gradient(150deg, #15151A 0%, #0C0C0E 58%);
+  padding: clamp(34px, 5vw, 62px);
 }
-
-.faq-item {
-  border-bottom: 1px solid var(--border);
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.faq-item.revealed { opacity: 1; transform: translateY(0); }
-
-.faq-question {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 22px 0;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: 500;
-  color: var(--text);
-  line-height: 1.4;
-  user-select: none;
-  transition: color 0.2s;
-}
-.faq-question:hover { color: var(--accent); }
-
-.faq-icon-wrap {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--bg-3);
-  border: 1px solid var(--border);
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 1px;
-  transition: background 0.2s, border-color 0.2s, transform 0.3s;
-}
-.faq-item.active .faq-icon-wrap {
-  background: var(--accent);
-  border-color: var(--accent);
-  transform: rotate(45deg);
-}
-.faq-icon-wrap svg { width: 10px; height: 10px; }
-.faq-icon-wrap svg path { stroke: var(--text-2); transition: stroke 0.2s; }
-.faq-item.active .faq-icon-wrap svg path { stroke: #fff; }
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  font-size: 14px;
-  color: var(--text-2);
-  line-height: 1.7;
-  transition: max-height 0.35s ease, padding-bottom 0.35s ease, opacity 0.35s ease;
-  opacity: 0;
-}
-.faq-item.active .faq-answer {
-  max-height: 200px;
-  opacity: 1;
-  padding-bottom: 22px;
-}
-
-/* ─── CTA FINAL ─── */
-.cta-strip {
-  background: var(--text);
-  padding: 120px 22px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-/* Subtle glow behind cta text */
-.cta-strip::before {
-  content: ''; position: absolute;
-  width: 700px; height: 350px;
-  background: radial-gradient(ellipse, rgba(0,113,227,0.2) 0%, transparent 70%);
-  top: 50%; left: 50%; transform: translate(-50%, -50%);
+.contact-card::before {
+  content: ""; position: absolute; width: 620px; height: 620px; right: -180px; top: -240px;
+  background: radial-gradient(circle, rgba(215,255,74,.14), transparent 62%);
   pointer-events: none;
 }
-.cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: end; position: relative; }
+.contact-card h2 { max-width: 16ch; }
+.contact-card p { color: var(--muted); margin-top: 18px; max-width: 46ch; font-size: 15px; line-height: 1.65; }
+.contact-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+.contact-side { display: grid; gap: 14px; padding-bottom: 4px; }
+.contact-mini {
+  border: 1px solid var(--line); border-radius: 12px; padding: 15px 16px;
+  background: rgba(255,255,255,.02);
+}
+.contact-mini .k { font-family: var(--mono); font-size: 9.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); display: block; margin-bottom: 5px; }
+.contact-mini .v { font-size: 13.5px; color: var(--fg); }
+.contact-mini .v a:hover { color: var(--accent); }
 
-.cta-strip h2 {
-  font-size: clamp(36px, 5vw, 60px);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  color: #fff;
-  line-height: 1.08;
-  margin-bottom: 16px;
-}
-
-/* CTA accent word */
-.cta-strip h2 .cta-accent {
-  background: linear-gradient(135deg, #5ac8fa 0%, var(--accent) 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-
-.cta-strip p {
-  font-size: 17px;
-  color: rgba(255,255,255,0.6);
-  max-width: 480px;
-  margin: 0 auto 40px;
-  line-height: 1.55;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;
-}
-.cta-strip p.revealed { opacity: 1; transform: translateY(0); }
-
-.btn-white {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 15px 32px;
-  background: #fff;
-  color: var(--text);
-  border-radius: 980px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.7s ease 0.2s, transform 0.7s ease 0.2s, background 0.2s, box-shadow 0.3s;
-  will-change: transform;
-}
-.btn-white.revealed { opacity: 1; transform: translateY(0); }
-.btn-white:hover { background: #f0f0f0; box-shadow: 0 18px 52px rgba(0,0,0,0.4); }
-
-/* CTA word reveal — each word stays together, letters animate inside */
-.cta-word {
-  display: inline-block;
-  white-space: nowrap;
-}
-.cta-char {
-  display: inline-block;
-  opacity: 0;
-  transform: translateY(26px) rotate(4deg);
-  transition: opacity 0.4s ease, transform 0.45s cubic-bezier(0.22,1,0.36,1);
-}
-.cta-strip.cta-on .cta-char {
-  opacity: 1;
-  transform: translateY(0) rotate(0deg);
+footer { margin-top: 90px; border-top: 1px solid var(--line); padding: 46px 0 34px; position: relative; z-index: 1; }
+.foot-top { display: flex; justify-content: space-between; gap: 30px; flex-wrap: wrap; }
+.foot-brand { max-width: 300px; }
+.foot-brand .brand { font-size: 22px; }
+.foot-brand p { color: var(--dim); font-size: 12.5px; margin-top: 8px; line-height: 1.6; }
+.foot-cols { display: flex; gap: 60px; flex-wrap: wrap; }
+.foot-col { display: grid; gap: 8px; align-content: start; }
+.foot-col h4 { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); margin-bottom: 4px; font-weight: 400; }
+.foot-col a { font-size: 13px; color: var(--muted); transition: color .2s; }
+.foot-col a:hover { color: var(--accent); }
+.foot-bot {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  margin-top: 46px; padding-top: 22px; border-top: 1px solid var(--line);
+  font-family: var(--mono); font-size: 10px; color: #55554F; letter-spacing: .02em;
 }
 
-/* ─── FOOTER ─── */
-footer {
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
-  padding: 60px 22px 40px;
-}
-
-.footer-inner {
-  max-width: 980px;
-  margin: 0 auto;
-}
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  padding-bottom: 40px;
-  border-bottom: 1px solid var(--border);
-  flex-wrap: wrap;
-}
-
-.footer-brand { max-width: 260px; }
-.footer-brand p { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 8px; }
-.footer-brand span { font-size: 12px; color: var(--text-3); }
-
-.footer-links {
-  display: flex;
-  gap: 60px;
-  flex-wrap: wrap;
-}
-
-.footer-col h4 {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--text-3);
-  margin-bottom: 16px;
-}
-
-.footer-col a {
-  display: block;
-  font-size: 13px;
-  color: var(--text-2);
-  text-decoration: none;
-  margin-bottom: 10px;
-  transition: color 0.2s;
-}
-.footer-col a:hover { color: var(--text); }
-
-.footer-bottom {
-  padding-top: 28px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.footer-bottom span { font-size: 12px; color: var(--text-3); }
-
-/* ─── FLOAT ─── */
-.float-cta {
-  position: fixed;
-  bottom: 28px; right: 28px;
-  z-index: 99;
-  background: #25d366;
-  color: #fff;
-  width: 52px; height: 52px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-  transition: transform 0.25s cubic-bezier(0.22,1,0.36,1), box-shadow 0.25s;
-}
-.float-cta:hover { transform: scale(1.1); box-shadow: 0 8px 36px rgba(37,211,102,0.55); }
-.float-cta svg { width: 22px; height: 22px; }
-/* Pulse ring */
-.float-cta::before {
-  content: ''; position: absolute; inset: -5px;
-  border-radius: 50%; border: 2px solid rgba(37,211,102,0.4);
-  animation: waPulse 2.4s ease-out infinite;
-}
-@keyframes waPulse {
-  0%   { transform: scale(1);    opacity: 0.7; }
-  70%  { transform: scale(1.38); opacity: 0; }
-  100% { transform: scale(1.38); opacity: 0; }
-}
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1);
-}
-.reveal.revealed { opacity: 1; transform: translateY(0); }
-
-/* ─── MARQUEE ─── */
-.marquee-wrap {
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 15px 0; overflow: hidden;
-  background: var(--bg-2);
-}
-.marquee-track {
-  display: flex; width: max-content;
-  animation: marqueeScroll 28s linear infinite;
-}
-@keyframes marqueeScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-.marquee-track span {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-  text-transform: uppercase; color: var(--text-3);
-  padding: 0 22px; white-space: nowrap;
-}
-.marquee-track span.dot { color: var(--accent); padding: 0 4px; }
+/* ─── REVEAL ─── */
+.js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
 
 /* ─── RESPONSIVE ─── */
-@media (max-width: 768px) {
-  nav { display: none; }
-  .hero h1 { font-size: 44px; }
-  .hero-sub { font-size: 17px; }
-  .bento-grid { grid-template-columns: 1fr; }
-  .bento-card.wide { grid-template-columns: 1fr; gap: 32px; }
-  .bento-visual { display: none; }
-  .about-grid { grid-template-columns: 1fr; }
-  .about-visual { position: static; }
-  .faq-cols { grid-template-columns: 1fr; }
-  .footer-links { gap: 32px; }
-  .footer-top { flex-direction: column; }
-  .stats-inner { border-radius: 16px; }
-  .stat-item { padding: 32px 10px; }
+@media (max-width: 1080px) {
+  .hero-grid { grid-template-columns: minmax(0,1fr); gap: 44px; }
+  .code-card { max-width: 620px; }
+  .demo-grid { grid-template-columns: 1fr; gap: 34px; }
+  .about { grid-template-columns: 1fr; gap: 44px; }
+  .about-photo { max-width: 460px; order: 2; }
+  .process { grid-template-columns: repeat(2, 1fr); }
+  .step { padding: 26px 22px 30px 0; }
+  .step:nth-child(3) { padding-left: 0; }
+  .contact-grid { grid-template-columns: 1fr; gap: 34px; }
 }
-/* ─── CLIENTS CAROUSEL ─── */
-.clients-band {
-  padding: 80px 0;
-  overflow: hidden;
-  position: relative;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .nav-status { display: none; }
+  .nav-burger { display: inline-flex; }
+  .nav-cta { display: none; }
+  section { padding: 86px 0; }
+  .hero { padding-top: 118px; }
+  .work-grid { gap: 14px; }
+  .work-card, .work-card:nth-child(n) { grid-column: span 12; }
+  .more-row { grid-template-columns: 1fr auto; gap: 6px 16px; }
+  .more-desc { grid-column: 1 / -1; grid-row: 2; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .hero-foot { grid-template-columns: 1fr; gap: 0; margin-top: 52px; }
+  .hero-foot > div { padding: 20px 0; border-bottom: 1px solid var(--line); }
+  .hero-foot > div:last-child { border-bottom: none; }
+  .stack-row { grid-template-columns: 1fr; gap: 14px; }
+  .contact-card { padding: 30px 22px 34px; }
+  .wrap, .nav-inner { padding: 0 18px; }
 }
-.clients-band::before,
-.clients-band::after {
-  content: '';
-  position: absolute;
-  top: 0; bottom: 0;
-  width: 120px;
-  z-index: 2;
-  pointer-events: none;
+@media (max-width: 560px) {
+  h1 { font-size: 40px; }
+  .hero-meta { gap: 12px 18px; }
+  .process { grid-template-columns: 1fr; }
+  .step, .step:not(:first-child) { padding: 24px 0 28px; border-bottom: 1px solid var(--line); }
+  .step:last-child { border-bottom: none; }
+  .step-num { margin-bottom: 18px; }
+  .kit-opt { padding: 9px 3px 8px; }
+  .browser-body { padding: 16px; }
+  .foot-cols { gap: 34px; }
 }
-.clients-band::before { left: 0; background: linear-gradient(to right, var(--bg) 0%, transparent 100%); }
-.clients-band::after  { right: 0; background: linear-gradient(to left,  var(--bg) 0%, transparent 100%); }
 
-.clients-header {
-  text-align: center;
-  margin-bottom: 48px;
-  padding: 0 22px;
-  opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.clients-header.revealed { opacity: 1; transform: translateY(0); }
-.clients-header .section-label { display: block; margin-bottom: 8px; }
-.clients-header p { font-size: 26px; font-weight: 700; letter-spacing: -0.025em; color: var(--text); }
-
-.carousel-row { display: flex; width: max-content; }
-.carousel-row--fwd { animation: carouselFwd 32s linear infinite; }
-.carousel-row--rev { animation: carouselRev 36s linear infinite; margin-top: 10px; }
-.clients-band:hover .carousel-row { animation-play-state: paused; }
-
-@keyframes carouselFwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-@keyframes carouselRev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
-
-.logo-card {
-  display: flex; align-items: center; justify-content: center;
-  width: 180px; height: 80px; margin: 0 10px; border-radius: 14px;
-  border: 1px solid var(--border); background: var(--bg); flex-shrink: 0;
-  position: relative; overflow: hidden;
-  transition: border-color 0.3s, background 0.3s, transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s;
-}
-.logo-card:hover {
-  border-color: rgba(0,113,227,0.2); background: #fafafa;
-  transform: translateY(-4px) scale(1.03); box-shadow: 0 12px 32px rgba(0,0,0,0.07);
-}
-.logo-card::after {
-  content: ''; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(110deg, transparent 35%, rgba(255,255,255,0.7) 50%, transparent 65%);
-  transform: translateX(-120%);
-}
-.logo-card:hover::after { transform: translateX(120%); transition: transform 0.5s ease; }
-
-.logo-inner {
-  display: flex; align-items: center; justify-content: center;
-  width: 100%; height: 100%; padding: 16px 20px;
-  filter: grayscale(1) opacity(0.45); transition: filter 0.3s ease;
-}
-.logo-card:hover .logo-inner { filter: grayscale(0) opacity(1); }
-.logo-inner img { max-width: 100%; max-height: 44px; width: auto; height: auto; object-fit: contain; display: block; }
-
-@media (max-width: 768px) {
-  .logo-card { width: 148px; height: 68px; }
-  .clients-band::before, .clients-band::after { width: 60px; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .js .reveal { opacity: 1; transform: none; }
 }
 </style>
 </head>
 <body>
 
-<!-- PROGRESS BAR -->
-<div id="scrollBar"></div>
+<div id="progress"></div>
 
-<!-- CURSOR GLOW -->
-<div id="cursorGlow"></div>
-
-<!-- NAV -->
-<header id="hdr">
+<!-- ─── NAV ─── -->
+<header class="nav" id="nav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">ive.</a>
-    <nav>
-      <a href="#servicos">Serviços<span class="nav-dot"></span></a>
-      <a href="#sobre">Sobre<span class="nav-dot"></span></a>
-      <a href="#faq">FAQ<span class="nav-dot"></span></a>
-      <a href="https://wa.me/5512991962238" class="nav-cta">Contato ↗</a>
+    <a href="#top" class="brand">kevyn<span>.</span></a>
+
+    <nav class="nav-links" aria-label="Navegação principal">
+      <a href="#trabalho">Trabalho</a>
+      <a href="#componentes">Componentes</a>
+      <a href="#processo">Processo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#faq">FAQ</a>
     </nav>
+
+    <div class="nav-right">
+      <span class="nav-status"><span class="dot-live"></span> Aberto a projetos</span>
+      <a href="https://wa.me/5512991962238" target="_blank" rel="noopener" class="btn btn-accent nav-cta">Vamos conversar ↗</a>
+      <button class="nav-burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <i></i><i></i>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg">
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-  </div>
-  <div class="hero-content">
-    <span class="hero-eyebrow">
-      <span class="eyebrow-dot"></span>
-      Shopify Partner Certificado
-    </span>
-    <h1>Lojas que vendem.<br><em>Páginas que convertem.</em></h1>
-    <p class="hero-sub">Desenvolvemos lojas Shopify e landing pages focadas em performance real.</p>
-    <div class="hero-actions">
-      <a href="https://wa.me/5512991962238" class="btn-primary" id="mainCta">Agendar consultoria gratuita ↗</a>
-      <a href="#servicos" class="btn-secondary">Ver serviços</a>
-    </div>
-  </div>
-  <div class="scroll-hint">
-    <span>Rolar</span>
-    <div class="scroll-line"></div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span>Shopify</span><span class="dot">·</span>
-    <span>Landing Pages</span><span class="dot">·</span>
-    <span>Liquid</span><span class="dot">·</span>
-    <span>CRO</span><span class="dot">·</span>
-    <span>Core Web Vitals</span><span class="dot">·</span>
-    <span>Mobile First</span><span class="dot">·</span>
-    <span>Performance</span><span class="dot">·</span>
-    <span>Conversão</span><span class="dot">·</span>
-    <span>E-commerce</span><span class="dot">·</span>
-    <span>GA4</span><span class="dot">·</span>
-    <span>Meta Pixel</span><span class="dot">·</span>
-    <span>UX</span><span class="dot">·</span>
-    <span>Shopify</span><span class="dot">·</span>
-    <span>Landing Pages</span><span class="dot">·</span>
-    <span>Liquid</span><span class="dot">·</span>
-    <span>CRO</span><span class="dot">·</span>
-    <span>Core Web Vitals</span><span class="dot">·</span>
-    <span>Mobile First</span><span class="dot">·</span>
-    <span>Performance</span><span class="dot">·</span>
-    <span>Conversão</span><span class="dot">·</span>
-    <span>E-commerce</span><span class="dot">·</span>
-    <span>GA4</span><span class="dot">·</span>
-    <span>Meta Pixel</span><span class="dot">·</span>
-    <span>UX</span><span class="dot">·</span>
-  </div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#trabalho">Trabalho</a>
+  <a href="#componentes">Componentes</a>
+  <a href="#processo">Processo</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#faq">FAQ</a>
+  <a href="https://wa.me/5512991962238" target="_blank" rel="noopener" class="btn btn-accent">Vamos conversar ↗</a>
 </div>
 
-<!-- STATS -->
-<div class="stats-band">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-num"><span class="counter" data-target="180">0</span>+</div>
-      <div class="stat-lbl">Lojas criadas</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num"><span class="counter" data-target="60">0</span>+</div>
-      <div class="stat-lbl">Landing pages</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num"><span class="counter" data-target="4">0</span>+</div>
-      <div class="stat-lbl">Anos de experiência</div>
-    </div>
-  </div>
-</div>
+<main id="top">
 
-<!-- SERVICES -->
-<section id="servicos">
-  <div class="section-inner">
-    <div class="services-header reveal">
-      <span class="section-label">Serviços</span>
-      <h2 class="section-title">O que entregamos.</h2>
-      <p class="section-body">Cada entrega é construída para converter.</p>
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <div class="hero-top">
+      <span class="pill"><span class="dot-live"></span> Desenvolvedor front-end · Shopify</span>
+      <span class="pill">São José dos Campos, BR</span>
     </div>
 
-    <div class="bento-grid">
-      <div class="bento-card reveal">
-        <div class="service-num">01 — Landing Page</div>
-        <h3>Páginas que vendem.</h3>
-        <p>Designer profissional, carregamento rápido, otimizadas para converter visita em cliente.</p>
-        <ul class="features-list">
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Design profissional
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Totalmente responsiva e mobile-first
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Core Web Vitals otimizado
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Formulário e integrações inclusos
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            3 meses de suporte
-          </li>
-        </ul>
-        <button class="service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Solicitar proposta <span>→</span>
-        </button>
-      </div>
-
-      <div class="bento-card reveal" style="transition-delay:0.12s">
-        <div class="service-num">02 — Loja Shopify</div>
-        <h3>Lojas que convertem.</h3>
-        <p>Do layout ao checkout — tudo pensado para maximizar conversão e escalar vendas.</p>
-        <ul class="features-list">
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Customizações avançadas em Liquid
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Otimização de conversão (CRO)
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Velocidade e performance
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Integração de apps e ferramentas
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            3 meses de suporte
-          </li>
-        </ul>
-        <button class="service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Solicitar proposta <span>→</span>
-        </button>
-      </div>
-
-      <div class="bento-card reveal" style="transition-delay:0.18s">
-        <div class="service-num">03 — Tráfego Online</div>
-        <h3>Autoridade que vira agenda cheia.</h3>
-        <p>Para advogados, influencers, social medias e consultores. O objetivo é construir presença e converter seguidor em cliente.</p>
-        <ul class="features-list">
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Campanhas de reconhecimento de marca pessoal
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Impulsionamento de conteúdo e reels
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Funil de captação para consultoria/mentoria
-          </li>
-        </ul>
-        <button class="service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Solicitar proposta <span>→</span>
-        </button>
-      </div>
-
-      <div class="bento-card reveal" style="transition-delay:0.24s">
-        <div class="service-num">04 — Tráfego Local</div>
-        <h3>Gente perto de você, na sua porta.</h3>
-        <p>Para clínicas, salões, lojas físicas e prestadores que dependem do público da região e querem levar movimento até o endereço.</p>
-        <ul class="features-list">
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Segmentação por raio de bairro/cidade
-          </li>
-          <li>
-            <span class="check"><svg viewBox="0 0 10 8" fill="none"><path d="M1 4l3 3 5-6" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            Campanhas de agendamento e visita
-          </li>
-        </ul>
-        <button class="service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-          Solicitar proposta <span>→</span>
-        </button>
-      </div>
-
-      <!-- 5th service card -->
-      <div class="bento-card wide reveal" style="transition-delay:0.30s">
-        <div class="card-left">
-          <div class="service-num">05 — Diagnóstico & Otimização</div>
-          <h3>Sua loja já existe?<br>Vamos melhorar.</h3>
-          <p class="card-desc">Diagnóstico completo de UX, performance e CRO. Identificamos exatamente onde você está perdendo vendas e corrigimos.</p>
-          <button class="service-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
-            Diagnóstico gratuito <span>→</span>
-          </button>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Lojas Shopify<br>construídas <em>linha por linha.</em></h1>
+        <p class="hero-sub">
+          Sou Kevyn, desenvolvedor front-end. Crio <strong>temas, componentes e páginas de produto</strong>
+          sob medida — do Liquid ao último pixel. Menos template, mais engenharia.
+        </p>
+        <div class="hero-actions">
+          <a href="#trabalho" class="btn btn-accent">Ver projetos</a>
+          <a href="https://wa.me/5512991962238" target="_blank" rel="noopener" class="btn">Falar comigo ↗</a>
         </div>
-        <div class="bento-visual">
-          <div class="icon-ring">🚀</div>
+        <div class="hero-meta">
+          <span>4+ anos de Shopify</span>
+          <span>Shopify Partner</span>
+          <span>Remoto no Brasil</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-<!-- CLIENTS CAROUSEL -->
-<div class="clients-band" id="clientes">
-  <div class="clients-header reveal">
-    <span class="section-label">Portfólio</span>
-    <p>Marcas que confiam.</p>
-  </div>
-  <div class="carousel-row carousel-row--fwd" id="row1"></div>
-  <div class="carousel-row carousel-row--rev" id="row2"></div>
-</div>
-<!-- ABOUT -->
-<section class="section" id="sobre">
-  <div class="about-grid">
-    <div class="about-text">
-      <span class="section-label reveal">Sobre</span>
-      <h2 class="section-title reveal">Sou Kevyn.</h2>
-      <p class="section-body reveal">Especialista em Shopify há mais de 4 anos. Meu trabalho é remover fricções que impedem vendas e construir interfaces que convertem visitantes em clientes.</p>
 
-      <div class="certs-list" style="margin-top: 52px;">
-        <div class="cert-row">
-          <div>
-            <div class="cert-row-title">Shopify Partner</div>
-            <div class="cert-row-sub">Certificação oficial Shopify</div>
-          </div>
-          <span class="cert-badge">Certificado</span>
+      <div class="code-card" aria-hidden="true">
+        <div class="code-head">
+          <div class="code-dots"><i></i><i></i><i></i></div>
+          <span class="code-tab"><b>product-kit.liquid</b> · tema</span>
         </div>
-        <div class="cert-row">
-          <div>
-            <div class="cert-row-title">Liquid Expert</div>
-            <div class="cert-row-sub">Customização avançada de temas</div>
-          </div>
-          <span class="cert-badge">+4 anos</span>
+        <div class="code-body">
+          <div class="cl"><span class="ln">1</span><span><span class="tok-k">{%- assign</span> <span class="tok-n">kit</span> = <span class="tok-f">product.metafields.kit</span> <span class="tok-k">-%}</span></span></div>
+          <div class="cl"><span class="ln">2</span><span><span class="tok-k">{%- if</span> kit <span class="tok-s">!=</span> <span class="tok-s">blank</span> <span class="tok-k">-%}</span></span></div>
+          <div class="cl"><span class="ln">3</span><span>  <span class="tok-s">&lt;div</span> <span class="tok-n">class</span>=<span class="tok-s">"kit"</span> <span class="tok-n">data-kits</span>=<span class="tok-s">"{{ kit.size }}"</span><span class="tok-s">&gt;</span></span></div>
+          <div class="cl"><span class="ln">4</span><span>    <span class="tok-k">{%- for</span> k <span class="tok-k">in</span> kit <span class="tok-k">-%}</span></span></div>
+          <div class="cl"><span class="ln">5</span><span>      <span class="tok-s">&lt;button</span> <span class="tok-n">data-qty</span>=<span class="tok-s">"{{ k.qty }}"</span><span class="tok-s">&gt;</span></span></div>
+          <div class="cl"><span class="ln">6</span><span>        {{ k.label }} · {{ k.price | money }}</span></div>
+          <div class="cl"><span class="ln">7</span><span>      <span class="tok-s">&lt;/button&gt;</span></span></div>
+          <div class="cl"><span class="ln">8</span><span>    <span class="tok-k">{%- endfor -%}</span></span></div>
+          <div class="cl"><span class="ln">9</span><span>  <span class="tok-s">&lt;/div&gt;</span></span></div>
+          <div class="cl"><span class="ln">10</span><span><span class="tok-k">{%- endif -%}</span></span></div>
         </div>
-        <div class="cert-row">
-          <div>
-            <div class="cert-row-title">Performance First</div>
-            <div class="cert-row-sub">Core Web Vitals & velocidade</div>
-          </div>
-          <span class="cert-badge">Especialidade</span>
+        <div class="code-foot">
+          <span>~/themes/atlas/snippets</span>
+          <span class="ok">✓ theme push · 1.24s</span>
         </div>
       </div>
     </div>
 
-    <div class="about-visual">
-      <div class="about-photo-wrap">
-        <div class="photo-inner">
-          <img src="lp/eu.jpg" alt="ive" onerror="this.style.display='none'">
-        </div>
-      </div>
+    <div class="hero-foot">
+      <div><span class="num">04+</span><span class="lbl">anos de Shopify</span></div>
+      <div><span class="num">10</span><span class="lbl">marcas no portfólio</span></div>
+      <div><span class="num">100%</span><span class="lbl">front-end sob medida</span></div>
     </div>
   </div>
 </section>
 
-<!-- CTA STRIP -->
-<div class="cta-strip" id="contact">
-  <div class="cta-inner">
-    <h2>Pronto para vender mais?<br><span class="cta-accent">Vamos começar juntos?</span></h2>
-    <p class="reveal">Diagnóstico inicial gratuito. Vamos entender seu negócio e montar um plano específico para sua loja ou landing page.</p>
-    <a href="https://wa.me/5512991962238" class="btn-white reveal">Agendar consultoria gratuita ↗</a>
+<!-- ─── TICKER ─── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Shopify</span><span>Liquid</span><span>JavaScript</span><span>HTML &amp; CSS</span><span>Metafields</span><span>Theme Kit</span><span>Git</span><span>Core Web Vitals</span><span>Figma</span><span>GA4</span><span>CRO</span><span>Acessibilidade</span>
+    <span>Shopify</span><span>Liquid</span><span>JavaScript</span><span>HTML &amp; CSS</span><span>Metafields</span><span>Theme Kit</span><span>Git</span><span>Core Web Vitals</span><span>Figma</span><span>GA4</span><span>CRO</span><span>Acessibilidade</span>
   </div>
 </div>
 
-<!-- FAQ -->
+<!-- ─── TRABALHO ─── -->
+<section id="trabalho">
+  <div class="wrap">
+    <div class="section-head head-row">
+      <div>
+        <div class="kicker reveal"><b>01</b> Trabalho selecionado</div>
+        <h2 class="reveal">Marcas que colocaram<br>meu código no ar.</h2>
+      </div>
+      <p class="section-sub reveal" style="max-width:34ch;">
+        Uma seleção de lojas e páginas em que atuei de ponta a ponta: tema, componentes, PDP e performance.
+      </p>
+    </div>
+
+    <div class="work-grid">
+      <article class="work-card reveal">
+        <a class="work-link" href="https://neobodynutrition.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/neobody.webp" alt="Home da Neobody Nutrition" loading="lazy" width="1440" height="900">
+            <span class="shot-tag">Shopify · Tema</span>
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <div class="work-top">
+              <div>
+                <h3 class="work-name">Neobody Nutrition</h3>
+                <p class="work-cat">Suplementos · Shopify</p>
+              </div>
+              <span class="work-idx">01</span>
+            </div>
+            <p class="work-desc">Tema customizado com PDP reconstruída, seletor de kits, upsell inline e busca própria — tudo rodando em produção.</p>
+            <ul class="chips"><li>Liquid</li><li>PDP</li><li>JavaScript</li></ul>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-card reveal">
+        <a class="work-link" href="https://bisyou.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/bisyou.webp" alt="Home da Bisyou" loading="lazy" width="1440" height="900">
+            <span class="shot-tag">Shopify · CRO</span>
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <div class="work-top">
+              <div>
+                <h3 class="work-name">Bisyou</h3>
+                <p class="work-cat">Skincare · Shopify</p>
+              </div>
+              <span class="work-idx">02</span>
+            </div>
+            <p class="work-desc">Seletor de volumetria, tag de oferta no variant picker, sticky buy e regras de brinde no carrinho.</p>
+            <ul class="chips"><li>Liquid</li><li>CRO</li><li>Componentes</li></ul>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-card reveal">
+        <a class="work-link" href="https://www.souly.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/souly.webp" alt="Home da Souly" loading="lazy" width="1440" height="900">
+            <span class="shot-tag">Shopify · Carrinho</span>
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <div class="work-top">
+              <div>
+                <h3 class="work-name">Souly</h3>
+                <p class="work-cat">Alimentos · Shopify</p>
+              </div>
+              <span class="work-idx">03</span>
+            </div>
+            <p class="work-desc">Cupons de brinde no carrinho, bloco de frete sem fricção e hierarquia de preço na página de produto.</p>
+            <ul class="chips"><li>Lógica de cupom</li><li>Integrações</li></ul>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-card reveal">
+        <a class="work-link" href="https://www.flueshop.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/flueshop.webp" alt="Home da Flue Shop" loading="lazy" width="1440" height="900">
+            <span class="shot-tag">Shopify · Tema próprio</span>
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <div class="work-top">
+              <div>
+                <h3 class="work-name">Flue Shop</h3>
+                <p class="work-cat">Moda feminina · Shopify</p>
+              </div>
+              <span class="work-idx">04</span>
+            </div>
+            <p class="work-desc">Tema próprio, múltiplos cabeçalhos, PDP de kits e uma biblioteca de componentes reutilizáveis.</p>
+            <ul class="chips"><li>Tema</li><li>Design system</li></ul>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-card reveal">
+        <a class="work-link" href="https://belletonn.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/belletonn.webp" alt="Home da Belletonn" loading="lazy" width="1440" height="900">
+            <span class="shot-tag">Shopify · PDP</span>
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <div class="work-top">
+              <div>
+                <h3 class="work-name">Belletonn</h3>
+                <p class="work-cat">Beleza · Shopify</p>
+              </div>
+              <span class="work-idx">05</span>
+            </div>
+            <p class="work-desc">Seletor de volumetria multi-link, banners de campanha e PDP com preço comparativo harmonizado.</p>
+            <ul class="chips"><li>Liquid</li><li>Campanhas</li></ul>
+          </div>
+        </a>
+      </article>
+
+      <article class="work-card reveal">
+        <a class="work-link" href="https://useferus.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/ferus.webp" alt="Home da Férus" loading="lazy" width="1440" height="900">
+            <span class="shot-tag">Shopify · Mobile</span>
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <div class="work-top">
+              <div>
+                <h3 class="work-name">Férus</h3>
+                <p class="work-cat">Grooming · Shopify</p>
+              </div>
+              <span class="work-idx">06</span>
+            </div>
+            <p class="work-desc">Bloco de frete compacto, oferta black na PDP e consistência de layout entre mobile e desktop.</p>
+            <ul class="chips"><li>UI</li><li>Mobile first</li></ul>
+          </div>
+        </a>
+      </article>
+    </div>
+
+    <div class="more-list reveal">
+      <a class="more-row" href="https://wavemaceleradora.com.br/" target="_blank" rel="noopener">
+        <span class="more-name">Wave Maceleradora <span>Site</span></span>
+        <span class="more-desc">Site institucional da aceleradora, do zero — identidade, layout e build.</span>
+        <span class="more-arrow">↗</span>
+      </a>
+      <a class="more-row" href="https://www.basicpro.com.br/" target="_blank" rel="noopener">
+        <span class="more-name">Basic Pro <span>Shopify</span></span>
+        <span class="more-desc">Cart drawer, hierarquia de subtotal e ajustes de vitrine.</span>
+        <span class="more-arrow">↗</span>
+      </a>
+      <a class="more-row" href="https://notmeshoes.com.br/" target="_blank" rel="noopener">
+        <span class="more-name">Not Me Shoes <span>Shopify</span></span>
+        <span class="more-desc">Carrinho v2, drawer e lógica de brindes por faixa de valor.</span>
+        <span class="more-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── COMPONENTES ─── -->
+<section id="componentes">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker reveal"><b>02</b> Elementos que construí</div>
+      <h2 class="reveal">Componentes que<br>resolvem de verdade.</h2>
+      <p class="section-sub reveal">
+        Peças que criei para lojas reais — aqui funcionando. Escolha uma, interaja e veja como o comportamento se resolve no detalhe.
+      </p>
+    </div>
+
+    <div class="tabs reveal" role="tablist" aria-label="Componentes">
+      <button class="tab" role="tab" id="tab-kit" aria-controls="panel-kit" aria-selected="true"><span class="t-num">01</span> Seletor de kits</button>
+      <button class="tab" role="tab" id="tab-cart" aria-controls="panel-cart" aria-selected="false" tabindex="-1"><span class="t-num">02</span> Brindes no carrinho</button>
+      <button class="tab" role="tab" id="tab-search" aria-controls="panel-search" aria-selected="false" tabindex="-1"><span class="t-num">03</span> Busca instantânea</button>
+    </div>
+
+    <div class="demo-grid">
+      <!-- painéis -->
+      <div class="demo-visual">
+        <!-- KIT -->
+        <div class="demo-panel" role="tabpanel" id="panel-kit" aria-labelledby="tab-kit">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">neobody.com.br/products/creatina-pura</span></div>
+            <div class="browser-body kit-demo">
+              <div class="kit-head">
+                <div class="kit-thumb"><b>neobody</b><small>NUTRITION</small></div>
+                <div>
+                  <p class="kit-eyebrow">Mais vendido</p>
+                  <h4 class="kit-title">Creatina Pura<br>Monohidratada 300g</h4>
+                  <div class="kit-rating"><b>★★★★★</b> 241 avaliações</div>
+                </div>
+              </div>
+
+              <p class="kit-label">Escolha sua melhor opção</p>
+              <div class="kit-options" role="radiogroup" aria-label="Quantidade">
+                <button class="kit-opt is-on" role="radio" aria-checked="true" data-qty="1" data-price="129">
+                  <span class="q">1 unidade</span>
+                  <span class="p">R$ 129</span>
+                  <span class="e">R$ 129,00 / un.</span>
+                </button>
+                <button class="kit-opt" role="radio" aria-checked="false" data-qty="2" data-price="119">
+                  <span class="tag">Mais vendido</span>
+                  <span class="q">2 unidades</span>
+                  <span class="p">R$ 238</span>
+                  <span class="e">R$ 119,00 / un.</span>
+                </button>
+                <button class="kit-opt hot" role="radio" aria-checked="false" data-qty="3" data-price="109">
+                  <span class="tag">Maior economia</span>
+                  <span class="q">3 unidades</span>
+                  <span class="p">R$ 327</span>
+                  <span class="e">R$ 109,00 / un.</span>
+                </button>
+              </div>
+
+              <div class="kit-save-line">
+                <span>Total <b id="kitTotal">R$ 129,00</b></span>
+                <span class="kit-save" id="kitSave">Preço de 1 unidade</span>
+              </div>
+              <button class="kit-add" id="kitAdd">Adicionar ao carrinho</button>
+              <div class="kit-foot">
+                <span>Frete grátis acima de R$ 199</span>
+                <span>Troca grátis</span>
+                <span>Compra segura</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CART -->
+        <div class="demo-panel" role="tabpanel" id="panel-cart" aria-labelledby="tab-cart" hidden>
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">souly.com.br/cart</span></div>
+            <div class="browser-body cart-demo">
+              <div class="cart-title">Seu carrinho <span id="cartCount">2 itens</span></div>
+
+              <div class="cart-item">
+                <div class="cart-thumb ci-thumb-1"></div>
+                <div>
+                  <p class="ci-name">Sérum Vitamina C 30ml</p>
+                  <p class="ci-sub">1 unidade</p>
+                </div>
+                <span class="ci-price">R$ 89,00</span>
+              </div>
+              <div class="cart-item">
+                <div class="cart-thumb ci-thumb-2"></div>
+                <div>
+                  <p class="ci-name">Manteiga Corporal 200g</p>
+                  <p class="ci-sub">1 unidade</p>
+                </div>
+                <span class="ci-price">R$ 69,00</span>
+              </div>
+
+              <div class="cart-item gift" id="cartGift" hidden>
+                <div class="cart-thumb ci-thumb-3"></div>
+                <div>
+                  <p class="ci-name">Sérum mini 10ml</p>
+                  <p class="ci-sub">Brinde do cupom</p>
+                </div>
+                <span class="ci-price">Grátis</span>
+              </div>
+
+              <div class="cart-coupon">
+                <input type="text" id="cartInput" placeholder="Cupom de desconto" aria-label="Cupom de desconto" autocomplete="off">
+                <button id="cartApply">Aplicar</button>
+              </div>
+              <p class="cart-hint" id="cartHint">Dica: use o cupom PRESENTE</p>
+
+              <div class="cart-total">
+                <div class="row"><span>Subtotal</span><span>R$ 158,00</span></div>
+                <div class="row discount" id="cartDiscount" hidden><span>Desconto (10%)</span><span>− R$ 15,80</span></div>
+                <div class="row big"><span>Total</span><span id="cartTotal">R$ 158,00</span></div>
+              </div>
+              <button class="cart-checkout">Finalizar compra</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEARCH -->
+        <div class="demo-panel" role="tabpanel" id="panel-search" aria-labelledby="tab-search" hidden>
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">loja.com.br — busca</span></div>
+            <div class="browser-body">
+              <div class="search-box">
+                <svg class="search-ico" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+                <input type="text" id="searchInput" placeholder="Buscar produtos…" aria-label="Buscar produtos" autocomplete="off">
+              </div>
+              <p class="search-count" id="searchCount">6 produtos</p>
+              <div class="search-results" id="searchResults"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- textos -->
+      <div class="demo-copy">
+        <div class="demo-text" id="copy-kit">
+          <h3>Seletor de volumetria</h3>
+          <p>Troca preço, economia e badge conforme o kit escolhido — sem recarregar a página e sem depender de app.</p>
+          <ul class="demo-list">
+            <li>Liquid + JavaScript puro, zero dependência</li>
+            <li>Preço por unidade recalculado em tempo real</li>
+            <li>Compatível com variantes, metafields e kits</li>
+          </ul>
+        </div>
+        <div class="demo-text" id="copy-cart" hidden>
+          <h3>Brindes no carrinho</h3>
+          <p>Cupom validado no carrinho, brinde adicionado automaticamente e desconto refletido no total — antes do checkout.</p>
+          <ul class="demo-list">
+            <li>Regra de brinde + desconto no mesmo fluxo</li>
+            <li>Feedback de erro sem recarregar a página</li>
+            <li>Estado sincronizado com o carrinho do Shopify</li>
+          </ul>
+        </div>
+        <div class="demo-text" id="copy-search" hidden>
+          <h3>Busca instantânea</h3>
+          <p>Modal de busca próprio, com filtro em tempo real, contagem de resultados e estado vazio tratado.</p>
+          <ul class="demo-list">
+            <li>Debounce e normalização de acentos</li>
+            <li>Navegação por teclado e foco acessível</li>
+            <li>HTML, CSS e JS do zero — sem biblioteca</li>
+          </ul>
+        </div>
+
+        <div class="demo-note">
+          <b>nota</b> — demonstrações funcionais reconstruídas para o portfólio.<br>
+          Os originais rodam em produção nas lojas acima.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESSO ─── -->
+<section id="processo">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker reveal"><b>03</b> Processo</div>
+      <h2 class="reveal">Como o trabalho<br>acontece.</h2>
+    </div>
+
+    <div class="process reveal">
+      <div class="step">
+        <span class="step-num">/ 01</span>
+        <h3>Diagnóstico</h3>
+        <p>Auditoria do tema, PDP, carrinho e velocidade. Saio com uma lista clara do que trava a venda.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">/ 02</span>
+        <h3>Protótipo</h3>
+        <p>Referência visual e componentização antes de escrever código. Nada de surpresa na entrega.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">/ 03</span>
+        <h3>Build</h3>
+        <p>Tema em ambiente de teste, Git e theme push. QA em iOS, Android e desktop antes de publicar.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">/ 04</span>
+        <h3>Entrega</h3>
+        <p>Documentação curta, treinamento do time e 30 dias de suporte incluídos no escopo.</p>
+      </div>
+    </div>
+
+    <div class="stack-row reveal">
+      <span class="stack-title">Ferramentas</span>
+      <div class="stack-tags">
+        <span>Shopify</span><span>Liquid</span><span>JavaScript</span><span>HTML &amp; CSS</span>
+        <span>Metafields</span><span>Shopify CLI</span><span>Git</span><span>Figma</span>
+        <span>GA4</span><span>Core Web Vitals</span><span>Yampi</span><span>Acessibilidade</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SOBRE ─── -->
+<section id="sobre">
+  <div class="wrap">
+    <div class="about">
+      <div class="about-photo reveal">
+        <img src="lp/eu.jpg" alt="Kevyn Jesus" loading="lazy" width="850" height="1040">
+        <div class="photo-cap"><span>kevyn.jpg</span><span>São José dos Campos, BR</span></div>
+      </div>
+
+      <div class="about-body reveal">
+        <div class="kicker"><b>04</b> Sobre</div>
+        <h2>Sou Kevyn,<br>desenvolvedor front-end.</h2>
+        <p>
+          Trabalho com Shopify há mais de <strong>4 anos</strong>, do tema completo ao componente que ninguém vê
+          mas todo mundo usa. Meu foco é <strong>código limpo, performance e interfaces que respeitam o design da marca</strong>.
+        </p>
+        <p>
+          Antes do e-commerce, passei por landing pages e sites institucionais — o que me deixou viciado em detalhe
+          de layout e em Core Web Vitals. Hoje atendo marcas de moda, beleza, suplementos e alimentos.
+        </p>
+
+        <div class="facts">
+          <div class="fact">
+            <div><div class="fact-t">Shopify Partner</div><div class="fact-s">Certificação oficial da plataforma</div></div>
+            <span class="fact-b">Certificado</span>
+          </div>
+          <div class="fact">
+            <div><div class="fact-t">Liquid avançado</div><div class="fact-s">Temas, sections, snippets e metafields</div></div>
+            <span class="fact-b">Especialidade</span>
+          </div>
+          <div class="fact">
+            <div><div class="fact-t">Performance &amp; CRO</div><div class="fact-s">Core Web Vitals aplicado ao build</div></div>
+            <span class="fact-b">Foco</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
 <section id="faq">
-  <div class="section-inner">
-    <div class="faq-header reveal">
-      <span class="section-label">FAQ</span>
-      <h2 class="section-title">Dúvidas frequentes.</h2>
-      <p class="section-body">Respostas diretas. Se precisar de mais detalhes, é só falar.</p>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker reveal"><b>05</b> FAQ</div>
+      <h2 class="reveal">Perguntas diretas.</h2>
     </div>
 
-    <div class="faq-cols">
+    <div class="faq-grid reveal">
       <div>
         <div class="faq-item">
-          <div class="faq-question"><span>Qual o prazo para uma Landing Page?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">2 dias após entrega de todos os materiais (textos, imagens, especificações). Inclui testes e otimizações iniciais.</div>
+          <button class="faq-q" aria-expanded="false">Você cria o tema do zero ou customiza o existente?<span class="faq-ico"></span></button>
+          <div class="faq-a"><p>Os dois. Depende do prazo e do orçamento: para marcas novas, tema próprio; para lojas em operação, customização cirúrgica sem parar a loja.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Qual o prazo para uma loja Shopify?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Otimizações simples: 3-5 dias. Customizações completas ou lojas novas: 1-4 semanas. Prazo definido após diagnóstico.</div>
+          <button class="faq-q" aria-expanded="false">Como funciona o acesso à loja?<span class="faq-ico"></span></button>
+          <div class="faq-a"><p>Você me dá acesso de colaborador no Shopify Partners ou um tema de desenvolvimento. Trabalho sempre em ambiente de teste e publico só depois da sua aprovação.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Quais custos estão inclusos?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Para LP: desenvolvimento e hospedagem básica. Domínio é por sua conta (~R$50-100/ano). Para Shopify: não há custos extras além de apps pagos opcionais, sempre acordados antes.</div>
+          <button class="faq-q" aria-expanded="false">Quanto tempo leva cada entrega?<span class="faq-ico"></span></button>
+          <div class="faq-a"><p>Componente isolado: 1–3 dias. PDP completa: 1–2 semanas. Tema do zero: 3–6 semanas. O prazo fecha depois do diagnóstico.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Você faz as artes e designs?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Sim. Trabalhamos com um designer parceiro — você fornece fotos e referências de marca, a gente cuida do resto.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question"><span>Você trabalha em lojas já existentes?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Sim. Fazemos redesign, otimizações e resolução de problemas. Começamos com diagnóstico gratuito.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question"><span>Como funciona o suporte?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">3 meses inclusos para bugs e ajustes menores. Após isso, planos mensais ou atendimento sob demanda.</div>
+          <button class="faq-q" aria-expanded="false">Você mexe com performance?<span class="faq-ico"></span></button>
+          <div class="faq-a"><p>Sim. Audito LCP, CLS e INP, reduzo JS desnecessário e ajusto imagens e fontes. Performance é parte do build, não um extra.</p></div>
         </div>
       </div>
 
       <div>
         <div class="faq-item">
-          <div class="faq-question"><span>Você garante aumento de vendas?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Entregamos uma loja ou LP otimizada para máxima conversão. As vendas dependem também de tráfego e estratégia — mas nossos clientes veem melhoras consistentes.</div>
+          <button class="faq-q" aria-expanded="false">E integrações com apps e ERP?<span class="faq-ico"></span></button>
+          <div class="faq-a"><p>Integro via API, metafields e webhooks. Quando um app existente resolve bem, uso ele — não reinvento a roda.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Como funciona o orçamento e pagamento?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Diagnóstico gratuito → proposta com valor fixo → 50% no início, 50% na entrega. PIX, cartão ou boleto.</div>
+          <button class="faq-q" aria-expanded="false">Como funciona o pagamento?<span class="faq-ico"></span></button>
+          <div class="faq-a"><p>Proposta com escopo e valor fechado. 50% para começar, 50% na entrega. PIX, cartão ou boleto.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Preciso fornecer senhas ou acessos?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Evitamos ao máximo. Usamos OAuth para integrações seguras. Se necessário, orientamos via videochamada.</div>
+          <button class="faq-q" aria-expanded="false">Você atende fora do Brasil?<span class="faq-ico"></span></button>
+          <div class="faq-a"><p>Sim, trabalho remoto. Fuso de São Paulo (GMT-3) e reuniões em português ou inglês.</p></div>
         </div>
         <div class="faq-item">
-          <div class="faq-question"><span>Quantas revisões estão incluídas?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Até 2 rodadas de revisões gratuitas. Mudanças de escopo são orçadas separadamente para manter o prazo.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question"><span>Você integra Google Analytics e pixels?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Sim. GA4, Meta Pixel e outras ferramentas de tracking estão incluídas no padrão.</div>
-        </div>
-        <div class="faq-item">
-          <div class="faq-question"><span>O que acontece após os 3 meses?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/></svg></div></div>
-          <div class="faq-answer">Planos de manutenção mensal ou cobranças por hora para atualizações. Sua loja cresce com seu negócio.</div>
+          <button class="faq-q" aria-expanded="false">E depois da entrega?<span class="faq-ico"></span></button>
+          <div class="faq-a"><p>30 dias de suporte para bugs e ajustes do escopo. Depois disso, manutenção mensal ou demanda pontual.</p></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <p>ive.</p>
-        <span>Shopify & Landing Pages</span>
-      </div>
-      <div class="footer-links">
-        <div class="footer-col">
-          <h4>Serviços</h4>
-          <a href="#servicos">Landing Pages</a>
-          <a href="#servicos">Lojas Shopify</a>
-          <a href="#servicos">Otimização</a>
+<!-- ─── CONTATO ─── -->
+<section id="contato">
+  <div class="wrap">
+    <div class="contact-card reveal">
+      <div class="contact-grid">
+        <div>
+          <div class="kicker"><b>06</b> Contato</div>
+          <h2>Tem um projeto<br>em mente?</h2>
+          <p>Me conta o que você precisa — loja nova, PDP, componente ou performance. Respondo em até 1 dia útil.</p>
+          <div class="contact-actions">
+            <a href="https://wa.me/5512991962238" target="_blank" rel="noopener" class="btn btn-accent">Chamar no WhatsApp ↗</a>
+            <a href="mailto:kevyn.contacts@gmail.com" class="btn">Mandar e-mail</a>
+          </div>
         </div>
-        
-        <div class="footer-col">
-          <h4>Contato</h4>
-          <a href="mailto:kevyn.contacts@gmail.com">kevyn.contacts@gmail.com</a>
-          <a href="https://wa.me/5512991962238" target="_blank">WhatsApp</a>
-          <a href="https://instagram.com/ikevyn__" target="_blank">@ikevyn__</a>
+
+        <div class="contact-side">
+          <div class="contact-mini">
+            <span class="k">Disponibilidade</span>
+            <span class="v"><span class="dot-live" style="display:inline-block;margin-right:7px;"></span>Agenda aberta para novos projetos</span>
+          </div>
+          <div class="contact-mini">
+            <span class="k">E-mail</span>
+            <span class="v"><a href="mailto:kevyn.contacts@gmail.com">kevyn.contacts@gmail.com</a></span>
+          </div>
+          <div class="contact-mini">
+            <span class="k">Onde</span>
+            <span class="v">São José dos Campos, SP · remoto</span>
+          </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>© 2026 Todos os direitos reservados.</span>
-      <span>CNPJ: 57.120.167/0001-03</span>
+  </div>
+</section>
+
+</main>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brand">kevyn<span>.</span></a>
+        <p>Desenvolvimento front-end para e-commerce. Temas, componentes e páginas de produto sob medida.</p>
+      </div>
+
+      <div class="foot-cols">
+        <div class="foot-col">
+          <h4>Navegar</h4>
+          <a href="#trabalho">Trabalho</a>
+          <a href="#componentes">Componentes</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contato</h4>
+          <a href="https://wa.me/5512991962238" target="_blank" rel="noopener">WhatsApp</a>
+          <a href="mailto:kevyn.contacts@gmail.com">E-mail</a>
+          <a href="https://instagram.com/ikevyn__" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://github.com/iKevyn" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="foot-bot">
+      <span>© 2026 Kevyn Jesus · CNPJ 57.120.167/0001-03</span>
+      <span>feito à mão, em código</span>
     </div>
   </div>
 </footer>
 
-<!-- Float WA -->
-<a href="https://wa.me/5512991962238" class="float-cta" target="_blank" title="WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
-
 <script>
-/* ── SCROLL PROGRESS ── */
-const scrollBar = document.getElementById('scrollBar');
-window.addEventListener('scroll', () => {
-  scrollBar.style.width = (window.scrollY / (document.documentElement.scrollHeight - innerHeight) * 100) + '%';
-}, { passive: true });
+/* ── PROGRESS ── */
+const bar = document.getElementById('progress');
+let raf = null;
+const onScroll = () => {
+  if (raf) return;
+  raf = requestAnimationFrame(() => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
+    nav.classList.toggle('is-scrolled', scrollY > 20);
+    raf = null;
+  });
+};
+const nav = document.getElementById('nav');
+addEventListener('scroll', onScroll, { passive: true });
+onScroll();
 
-/* ── NAV SCROLL STATE ── */
-const hdr = document.getElementById('hdr');
-window.addEventListener('scroll', () => hdr.classList.toggle('scrolled', scrollY > 40), { passive: true });
-
-/* ── CURSOR GLOW (desktop) ── */
-const glow = document.getElementById('cursorGlow');
-if (matchMedia('(pointer:fine)').matches) {
-  document.addEventListener('mousemove', e => {
-    glow.style.left = e.clientX + 'px';
-    glow.style.top  = e.clientY + 'px';
-    glow.style.opacity = '1';
-  }, { passive: true });
-  document.addEventListener('mouseleave', () => glow.style.opacity = '0');
-}
-
-/* ── HERO WORD-BY-WORD REVEAL ── */
-(function () {
-  const h1 = document.querySelector('.hero h1');
-  if (!h1) return;
-  h1.style.opacity = '1';
-  h1.style.animation = 'none';
-
-  function wrapWords(node, delayRef) {
-    if (node.nodeType === 3) {
-      const words = node.textContent.split(/(\s+)/);
-      const frag = document.createDocumentFragment();
-      words.forEach(w => {
-        if (!w.trim()) { frag.appendChild(document.createTextNode(w)); return; }
-        delayRef.v += 0.065;
-        const outer = document.createElement('span');
-        outer.className = 'hero-word';
-        const inner = document.createElement('span');
-        inner.className = 'hero-word-inner';
-        inner.style.animationDelay = delayRef.v + 's';
-        inner.textContent = w;
-        outer.appendChild(inner);
-        frag.appendChild(outer);
-      });
-      node.parentNode.replaceChild(frag, node);
-    } else if (node.nodeType === 1 && node.nodeName !== 'BR') {
-      Array.from(node.childNodes).forEach(c => wrapWords(c, delayRef));
-    }
-  }
-
-  const delay = { v: 0.28 };
-  Array.from(h1.childNodes).forEach(c => wrapWords(c, delay));
-})();
-
-/* ── HERO PARALLAX (light) ── */
-(function () {
-  const hero = document.querySelector('.hero');
-  window.addEventListener('scroll', () => {
-    const p = Math.min(scrollY / 480, 1);
-    hero.style.transform = `translateY(${scrollY * 0.18}px) scale(${1 - p * 0.025})`;
-    hero.style.opacity   = '' + (1 - p * 0.5);
-    hero.style.filter    = `blur(${p * 4}px)`;
-  }, { passive: true });
-})();
-/* ── CAROUSEL ── */
-const clients = [
-  { src: 'Logos/savannah.jpg',   alt: 'Savannah' },
-  { src: 'Logos/tangerina.png',  alt: 'Tangerina' },
-  { src: 'Logos/belletonn.png',  alt: 'Belletonn' },
-  { src: 'Logos/notme.webp.png', alt: 'Not Me' },
-  { src: 'Logos/hiven.png', alt: 'Hiven' },
-  { src: 'Logos/basic.png', alt: 'Basic' },
-
-];
-
-function buildRow(el, items) {
-  el.innerHTML = [...items, ...items].map(c =>
-    `<div class="logo-card"><div class="logo-inner"><img src="${c.src}" alt="${c.alt}" loading="lazy"></div></div>`
-  ).join('');
-}
-
-buildRow(document.getElementById('row1'), clients);
-/* ── COUNTER ANIMATION ── */
-function animCount(el) {
-  const target = parseInt(el.dataset.target);
-  const dur = 1200, step = 16;
-  const inc = target / (dur / step);
-  let current = 0;
-  const timer = setInterval(() => {
-    current = Math.min(current + inc, target);
-    el.textContent = Math.round(current);
-    if (current >= target) clearInterval(timer);
-  }, step);
-}
-
-/* ── INTERSECTION OBSERVER ── */
-const io = new IntersectionObserver(entries => {
+/* ── REVEAL ── */
+const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
-    e.target.classList.add('revealed');
-    const c = e.target.querySelector('.counter');
-    if (c) animCount(c);
+    e.target.classList.add('in');
     io.unobserve(e.target);
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-document.querySelectorAll(
-  '.reveal, .stat-item, .cert-row, .about-visual, .faq-item, .cta-strip p, .btn-white'
-).forEach(el => io.observe(el));
-
-/* ── BENTO CARD 3D TILT + FEATURE LIST STAGGER ── */
-const cardObs = new IntersectionObserver(entries => {
+/* ── NAV ACTIVE ── */
+const links = [...document.querySelectorAll('.nav-links a')];
+const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const navIO = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('card-vis'); cardObs.unobserve(e.target); }
+    if (!e.isIntersecting) return;
+    links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + e.target.id));
   });
-}, { threshold: 0.22 });
-
-document.querySelectorAll('.bento-card').forEach(card => {
-  cardObs.observe(card);
-  card.addEventListener('mousemove', e => {
-    const r = card.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width  - 0.5;
-    const y = (e.clientY - r.top)  / r.height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 4}deg) translateZ(6px)`;
-  });
-  card.addEventListener('mouseleave', () => card.style.transform = '');
-});
-
-/* ── CTA CHAR REVEAL (word-safe) ── */
-(function () {
-  const h2 = document.querySelector('.cta-strip h2');
-  if (!h2) return;
-
-  function charWrap(node, delayRef) {
-    if (node.nodeType === 3) {
-      // Split by words, keeping spaces
-      const parts = node.textContent.split(/(\s+)/);
-      const frag = document.createDocumentFragment();
-
-      parts.forEach(part => {
-        if (!part.trim()) {
-          // It's whitespace — just add a space text node
-          frag.appendChild(document.createTextNode('\u00a0'));
-          return;
-        }
-        // Wrap the whole word in a no-break container
-        const wordWrap = document.createElement('span');
-        wordWrap.className = 'cta-word';
-
-        // Then wrap each character inside that word
-        [...part].forEach(ch => {
-          delayRef.v += 0.03;
-          const sp = document.createElement('span');
-          sp.className = 'cta-char';
-          sp.style.transitionDelay = delayRef.v + 's';
-          sp.textContent = ch;
-          wordWrap.appendChild(sp);
-        });
-
-        frag.appendChild(wordWrap);
-      });
-
-      node.parentNode.replaceChild(frag, node);
-
-    } else if (node.nodeType === 1) {
-      Array.from(node.childNodes).forEach(c => charWrap(c, delayRef));
-    }
-  }
-
-  charWrap(h2, { v: 0 });
-
-  new IntersectionObserver((entries, obs) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        document.querySelector('.cta-strip').classList.add('cta-on');
-        obs.disconnect();
-      }
-    });
-  }, { threshold: 0.35 }).observe(h2);
-})();
-
-/* ── NAV ACTIVE SECTION DOT ── */
-(function () {
-  const links = document.querySelectorAll('nav a[href^="#"]:not(.nav-cta)');
-  const secs  = [...document.querySelectorAll('section[id], div[id]')];
-  const secObs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (!e.isIntersecting) return;
-      links.forEach(a => a.classList.remove('active'));
-      const m = document.querySelector(`nav a[href="#${e.target.id}"]`);
-      if (m) m.classList.add('active');
-    });
-  }, { threshold: 0.45 });
-  secs.forEach(s => secObs.observe(s));
-})();
-
-/* ── SMOOTH SCROLL ── */
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const t = document.querySelector(a.getAttribute('href'));
-    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
-  });
-});
+}, { threshold: 0.2, rootMargin: '-20% 0px -55% 0px' });
+sections.forEach(s => navIO.observe(s));
 
 /* ── FAQ ── */
-document.querySelectorAll('.faq-question').forEach(q => {
+document.querySelectorAll('.faq-item').forEach(item => {
+  const q = item.querySelector('.faq-q');
+  const a = item.querySelector('.faq-a');
   q.addEventListener('click', () => {
-    const item = q.closest('.faq-item');
-    const was  = item.classList.contains('active');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-    if (!was) item.classList.add('active');
+    const open = item.classList.contains('is-open');
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('is-open');
+      i.querySelector('.faq-a').style.maxHeight = null;
+      i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+    });
+    if (!open) {
+      item.classList.add('is-open');
+      a.style.maxHeight = a.scrollHeight + 'px';
+      q.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+/* ── HELPERS ── */
+const brl = (v) => 'R$ ' + v.toFixed(2).replace('.', ',');
+
+/* ── DEMO: KIT ── */
+(() => {
+  const opts = [...document.querySelectorAll('.kit-opt')];
+  const totalEl = document.getElementById('kitTotal');
+  const saveEl = document.getElementById('kitSave');
+  const addEl = document.getElementById('kitAdd');
+  const BASE = 129;
+
+  opts.forEach(btn => {
+    btn.addEventListener('click', () => {
+      opts.forEach(b => {
+        const on = b === btn;
+        b.classList.toggle('is-on', on);
+        b.setAttribute('aria-checked', String(on));
+      });
+      const qty = +btn.dataset.qty;
+      const price = +btn.dataset.price;
+      const total = qty * price;
+      const save = BASE * qty - total;
+      totalEl.textContent = brl(total);
+      saveEl.textContent = save > 0
+        ? 'Você economiza ' + brl(save)
+        : 'Preço de 1 unidade';
+    });
+  });
+
+  let timer;
+  addEl.addEventListener('click', () => {
+    const original = 'Adicionar ao carrinho';
+    addEl.classList.add('done');
+    addEl.textContent = 'Adicionado ✓';
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      addEl.classList.remove('done');
+      addEl.textContent = original;
+    }, 1800);
+  });
+})();
+
+/* ── DEMO: CARRINHO ── */
+(() => {
+  const input = document.getElementById('cartInput');
+  const apply = document.getElementById('cartApply');
+  const hint = document.getElementById('cartHint');
+  const gift = document.getElementById('cartGift');
+  const discount = document.getElementById('cartDiscount');
+  const total = document.getElementById('cartTotal');
+  const count = document.getElementById('cartCount');
+  const SUBTOTAL = 158;
+  let applied = false;
+
+  const setHint = (text, cls) => {
+    hint.textContent = text;
+    hint.className = 'cart-hint' + (cls ? ' ' + cls : '');
+  };
+
+  const run = () => {
+    const value = input.value.trim().toUpperCase();
+    if (!value) { setHint('Digite um cupom para testar.', 'err'); return; }
+    if (value === 'PRESENTE') {
+      if (applied) { setHint('Cupom já aplicado neste carrinho.', 'ok'); return; }
+      applied = true;
+      const off = SUBTOTAL * 0.1;
+      gift.hidden = false;
+      discount.hidden = false;
+      total.textContent = brl(SUBTOTAL - off);
+      count.textContent = '3 itens';
+      setHint('Cupom aplicado — brinde adicionado.', 'ok');
+      input.value = 'PRESENTE';
+      input.setAttribute('readonly', 'readonly');
+      apply.textContent = 'Aplicado';
+    } else {
+      setHint('Cupom inválido. Tente PRESENTE.', 'err');
+    }
+  };
+
+  apply.addEventListener('click', run);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+})();
+
+/* ── DEMO: BUSCA ── */
+(() => {
+  const input = document.getElementById('searchInput');
+  const list = document.getElementById('searchResults');
+  const count = document.getElementById('searchCount');
+  const products = [
+    { name: 'Creatina Pura 300g', cat: 'Suplementos', price: 129, c: '#DCE9F2' },
+    { name: 'Sérum Vitamina C 30ml', cat: 'Skincare', price: 89, c: '#F6C7B8' },
+    { name: 'Manteiga Corporal 200g', cat: 'Skincare', price: 69, c: '#D9E3C8' },
+    { name: 'Kit Antissinais', cat: 'Kits', price: 199, c: '#E8DDF5' },
+    { name: 'Camiseta Matcha', cat: 'Moda', price: 79, c: '#CFE0CF' },
+    { name: 'Bota Winter', cat: 'Calçados', price: 349, c: '#E6DCCF' },
+  ];
+
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+  const render = (q) => {
+    const term = norm(q.trim());
+    const found = products.filter(p => !term || norm(p.name + ' ' + p.cat).includes(term));
+    count.textContent = found.length + (found.length === 1 ? ' produto' : ' produtos');
+    list.innerHTML = found.length
+      ? found.map(p => `
+        <div class="search-row">
+          <span class="sr-thumb" style="background:${p.c}"></span>
+          <div><div class="sr-name">${p.name}</div><div class="sr-cat">${p.cat}</div></div>
+          <span class="sr-price">${brl(p.price)}</span>
+        </div>`).join('')
+      : '<div class="search-empty">Nenhum produto encontrado.<br>Tente outro termo.</div>';
+  };
+
+  let t;
+  input.addEventListener('input', () => {
+    clearTimeout(t);
+    t = setTimeout(() => render(input.value), 120);
+  });
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { input.value = ''; render(''); }
+  });
+  render('');
+})();
+
+/* ── TABS ── */
+(() => {
+  const tabs = [...document.querySelectorAll('.tab')];
+  const panels = {
+    kit: document.getElementById('panel-kit'),
+    cart: document.getElementById('panel-cart'),
+    search: document.getElementById('panel-search'),
+  };
+  const copies = {
+    kit: document.getElementById('copy-kit'),
+    cart: document.getElementById('copy-cart'),
+    search: document.getElementById('copy-search'),
+  };
+
+  const select = (key) => {
+    tabs.forEach(t => {
+      const on = t.id === 'tab-' + key;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+    });
+    Object.entries(panels).forEach(([k, el]) => { el.hidden = k !== key; });
+    Object.entries(copies).forEach(([k, el]) => { el.hidden = k !== key; });
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => select(tab.id.replace('tab-', '')));
+    tab.addEventListener('keydown', e => {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
+      tabs[next].focus();
+      select(tabs[next].id.replace('tab-', ''));
+    });
+  });
+})();
+
+/* ── MOBILE MENU ── */
+(() => {
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('mobileMenu');
+  const setOpen = (open) => {
+    menu.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+  };
+  burger.addEventListener('click', () => setOpen(!menu.classList.contains('open')));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+  addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+  matchMedia('(min-width: 861px)').addEventListener('change', e => { if (e.matches) setOpen(false); });
+})();
+
+/* ── SMOOTH SCROLL (compensa nav fixa) ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (!target) return;
+    e.preventDefault();
+    const y = target.getBoundingClientRect().top + scrollY - 58;
+    scrollTo({ top: y, behavior: 'smooth' });
   });
 });
 </script>

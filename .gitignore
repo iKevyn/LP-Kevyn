@@ -1,0 +1,7 @@
+node_modules/
+shots/
+scripts/
+package.json
+package-lock.json
+index.legacy.html
+.DS_Store
