@@ -904,89 +904,6 @@ footer {
 .tools { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 72px; }
 .tools span { font-size: 13px; color: var(--text-2); padding: 7px 15px; border-radius: 980px; background: var(--bg-2); }
 
-/* experimente (demos) */
-.tabs { display: inline-flex; gap: 4px; padding: 4px; border-radius: 980px; background: var(--bg-3); margin: 0 auto 64px; }
-.tabs-wrap { text-align: center; }
-.tab {
-  font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; border: 0;
-  padding: 10px 20px; border-radius: 980px; background: transparent; color: var(--text-2); transition: background .25s, color .25s, box-shadow .25s;
-}
-.tab:hover { color: var(--text); }
-.tab[aria-selected="true"] { background: var(--bg); color: var(--text); box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-.demo-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
-.browser { background: var(--bg); border-radius: 24px; overflow: hidden; box-shadow: 0 0 0 1px var(--border), 0 30px 80px rgba(0,0,0,0.08); }
-.browser-bar { display: flex; align-items: center; gap: 6px; padding: 13px 18px; border-bottom: 1px solid var(--border); }
-.browser-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--bg-3); }
-.browser-url { margin-left: 12px; font-size: 12px; color: var(--text-3); }
-.browser-body { padding: 28px; }
-.demo-text h3 { font-size: 34px; font-weight: 700; letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 14px; }
-.demo-text p { font-size: 18px; color: var(--text-2); line-height: 1.55; }
-.demo-list { list-style: none; margin-top: 26px; }
-.demo-list li { display: flex; gap: 12px; align-items: center; padding: 13px 0; border-top: 1px solid var(--border); font-size: 15px; }
-.demo-list li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; }
-.demo-note { margin-top: 24px; font-size: 13px; color: var(--text-3); }
-
-.kit-head { display: flex; gap: 16px; align-items: center; margin-bottom: 22px; }
-.kit-thumb { width: 76px; height: 76px; flex: 0 0 auto; border-radius: 16px; background: var(--bg-2); display: grid; place-content: center; text-align: center; }
-.kit-thumb b { font-size: 13px; letter-spacing: -0.02em; }
-.kit-thumb small { font-size: 7px; letter-spacing: .14em; color: var(--text-3); }
-.kit-eyebrow { font-size: 12px; font-weight: 600; color: var(--accent); }
-.kit-title { font-size: 18px; font-weight: 700; line-height: 1.2; letter-spacing: -0.02em; margin: 2px 0 4px; }
-.kit-rating { font-size: 12px; color: var(--text-3); }
-.kit-rating b { color: #f5a623; font-weight: 400; }
-.kit-label { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
-.kit-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.kit-opt {
-  font: inherit; cursor: pointer; position: relative; text-align: center; color: var(--text);
-  padding: 18px 8px 12px; border-radius: 16px; border: 1.5px solid var(--border); background: var(--bg);
-  display: flex; flex-direction: column; gap: 2px; transition: border-color .2s, background .2s;
-}
-.kit-opt:hover { border-color: rgba(0,0,0,0.2); }
-.kit-opt.is-on { border-color: var(--accent); background: rgba(0,113,227,0.04); }
-.kit-opt .tag { position: absolute; top: -9px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 9px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 3px 8px; border-radius: 980px; background: var(--text); color: var(--bg); }
-.kit-opt.hot .tag { background: var(--accent); }
-.kit-opt .q { font-size: 13px; color: var(--text-2); }
-.kit-opt .p { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
-.kit-opt .e { font-size: 11px; color: var(--text-3); }
-.kit-save-line { display: flex; justify-content: space-between; align-items: center; margin: 18px 0 12px; font-size: 14px; color: var(--text-2); }
-.kit-save-line b { color: var(--text); }
-.kit-save { font-size: 12px; font-weight: 600; color: #1a8a4a; }
-.kit-add, .cart-checkout { font: inherit; width: 100%; cursor: pointer; border: 0; padding: 14px; border-radius: 980px; background: var(--accent); color: #fff; font-size: 15px; font-weight: 500; transition: background .2s; }
-.kit-add:hover, .cart-checkout:hover { background: var(--accent-hover); }
-.kit-add.done { background: #1a8a4a; }
-.kit-foot { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-top: 12px; font-size: 11px; color: var(--text-3); }
-.cart-title { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 14px; }
-.cart-title span { font-size: 13px; font-weight: 400; color: var(--text-3); margin-left: 6px; }
-.cart-item { display: grid; grid-template-columns: 48px 1fr auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border); }
-.cart-thumb { width: 48px; height: 48px; border-radius: 12px; }
-.ci-thumb-1 { background: #f6d7c8; } .ci-thumb-2 { background: #dbe6cf; } .ci-thumb-3 { background: #d6e6f7; }
-.ci-name { font-size: 14px; font-weight: 600; }
-.ci-sub { font-size: 12px; color: var(--text-3); }
-.ci-price { font-size: 14px; font-weight: 600; }
-.cart-item.gift .ci-price { color: #1a8a4a; }
-.cart-item.gift { animation: fadeUp .5s cubic-bezier(0.22,1,0.36,1); }
-.cart-coupon { display: flex; gap: 8px; margin-top: 16px; }
-.cart-coupon input { flex: 1; min-width: 0; font: inherit; font-size: 14px; padding: 11px 16px; border-radius: 980px; border: 1px solid rgba(0,0,0,0.12); outline: none; background: var(--bg); color: var(--text); }
-.cart-coupon input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,113,227,0.12); }
-.cart-coupon button { font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; padding: 11px 20px; border-radius: 980px; border: 0; background: var(--text); color: var(--bg); }
-.cart-hint { font-size: 12px; color: var(--text-3); margin: 8px 4px 14px; }
-.cart-hint.ok { color: #1a8a4a; } .cart-hint.err { color: #d70015; }
-.cart-total .row { display: flex; justify-content: space-between; font-size: 14px; color: var(--text-2); padding: 3px 0; }
-.cart-total .row.discount { color: #1a8a4a; }
-.cart-total .row.big { font-size: 17px; font-weight: 700; color: var(--text); margin: 6px 0 14px; }
-.search-box { position: relative; }
-.search-ico { position: absolute; left: 16px; top: 50%; width: 18px; height: 18px; transform: translateY(-50%); stroke: var(--text-3); }
-.search-box input { width: 100%; font: inherit; font-size: 15px; padding: 13px 16px 13px 44px; border-radius: 980px; border: 1px solid transparent; background: var(--bg-2); outline: none; color: var(--text); }
-.search-box input:focus { border-color: var(--accent); background: var(--bg); box-shadow: 0 0 0 3px rgba(0,113,227,0.12); }
-.search-count { font-size: 12px; color: var(--text-3); margin: 14px 4px 6px; }
-.search-results { min-height: 300px; }
-.search-row { display: grid; grid-template-columns: 40px 1fr auto; gap: 12px; align-items: center; padding: 10px 4px; border-bottom: 1px solid var(--border); }
-.sr-thumb { width: 40px; height: 40px; border-radius: 10px; display: block; }
-.sr-name { font-size: 14px; font-weight: 600; }
-.sr-cat { font-size: 12px; color: var(--text-3); }
-.sr-price { font-size: 14px; font-weight: 600; }
-.search-empty { text-align: center; padding: 60px 0; font-size: 14px; color: var(--text-3); }
-
 /* processo */
 .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; position: relative; }
 .steps::before { content: ""; position: absolute; top: 5px; left: 0; right: 0; height: 1px; background: var(--border); }
@@ -1000,6 +917,8 @@ footer {
 .proof .clients-band { border-bottom: 0; padding: 72px 0 0; background: transparent; }
 .sec-alt .tools span { background: var(--bg); }
 .proof .logo-card { background: var(--bg); }
+.proof .clients-band::before { background: linear-gradient(to right, var(--bg-2) 0%, transparent 100%); }
+.proof .clients-band::after { background: linear-gradient(to left, var(--bg-2) 0%, transparent 100%); }
 
 /* sobre */
 .about-grid { gap: 96px; align-items: center; }
@@ -1023,9 +942,6 @@ footer {
   .work-grid { grid-template-columns: 1fr 1fr; gap: 48px 20px; }
   .cap-row { grid-template-columns: 1fr; gap: 14px; padding: 40px 0; }
   .cap-num { padding-top: 0; }
-  .demo-grid { grid-template-columns: 1fr; gap: 40px; }
-  .browser-body { padding: 18px; }
-  .kit-opt .p { font-size: 15px; }
   .steps { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
   .steps::before { display: none; }
   .about-grid { gap: 56px; }
@@ -1033,10 +949,10 @@ footer {
 @media (max-width: 520px) {
   .work-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }
-  .tab { font-size: 13px; padding: 9px 13px; }
   .tl-row { grid-template-columns: 1fr; gap: 2px; }
 }
 
+.cta-strip h2 .cta-accent .cta-char { -webkit-text-fill-color: #47a6ff; color: #47a6ff; }
 /* ═══════════ MODO NOTURNO ═══════════ */
 :root[data-theme="dark"] {
   --bg: #000000;
@@ -1061,11 +977,8 @@ footer {
 :root[data-theme="dark"] .cta-strip { border-top: 1px solid var(--border); }
 :root[data-theme="dark"] .hero-orb-1 { background: radial-gradient(circle, rgba(41,151,255,0.12) 0%, transparent 70%); }
 :root[data-theme="dark"] #cursorGlow { background: radial-gradient(circle, rgba(41,151,255,0.08) 0%, transparent 65%); }
-:root[data-theme="dark"] .browser { box-shadow: 0 0 0 1px var(--border), 0 30px 80px rgba(0,0,0,0.6); }
-:root[data-theme="dark"] .kit-opt:hover { border-color: rgba(255,255,255,0.25); }
-:root[data-theme="dark"] .cart-coupon input { border-color: var(--soft-line); }
 :root[data-theme="dark"] .photo-inner::after { background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.35) 100%); }
-html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card, .browser, .tab { transition: background-color .45s ease, color .45s ease; }
+html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition: background-color .45s ease, color .45s ease; }
 
 /* toggle */
 .nav-right { display: flex; align-items: center; gap: 28px; }
@@ -1094,7 +1007,6 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card, .browser, .t
     <nav>
       <a href="#trabalho">Trabalho<span class="nav-dot"></span></a>
       <a href="#faco">O que eu faço<span class="nav-dot"></span></a>
-      <a href="#experimente">Experimente<span class="nav-dot"></span></a>
       <a href="#sobre">Sobre<span class="nav-dot"></span></a>
       <a href="https://wa.me/5512991962238" class="nav-cta">Contato ↗</a>
     </nav>
@@ -1217,172 +1129,7 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card, .browser, .t
   </div>
 </section>
 
-<section class="sec" id="experimente">
-  <div class="wrap">
-    <div class="sec-head center reveal">
-      <span class="eyebrow">Experimente</span>
-      <h2 class="big">Não precisa acreditar.<br><em>Toque.</em></h2>
-      <p class="lead">Três componentes que criei para lojas reais, funcionando aqui.</p>
-    </div>
-    <div class="tabs-wrap reveal"><div class="tabs" role="tablist" aria-label="Componentes">
-      <button class="tab" role="tab" id="tab-kit" aria-controls="panel-kit" aria-selected="true">Seletor de kits</button>
-      <button class="tab" role="tab" id="tab-cart" aria-controls="panel-cart" aria-selected="false" tabindex="-1">Brindes no carrinho</button>
-      <button class="tab" role="tab" id="tab-search" aria-controls="panel-search" aria-selected="false" tabindex="-1">Busca instantânea</button>
-    </div></div>
-    <div class="demo-grid">
-      <!-- painéis -->
-      <div class="demo-visual">
-        <!-- KIT -->
-        <div class="demo-panel" role="tabpanel" id="panel-kit" aria-labelledby="tab-kit">
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">sualoja.com.br/products/creatina</span></div>
-            <div class="browser-body kit-demo">
-              <div class="kit-head">
-                <div class="kit-thumb"><b>neobody</b><small>NUTRITION</small></div>
-                <div>
-                  <p class="kit-eyebrow">Mais vendido</p>
-                  <h4 class="kit-title">Creatina Pura<br>Monohidratada 300g</h4>
-                  <div class="kit-rating"><b>★★★★★</b> 241 avaliações</div>
-                </div>
-              </div>
-
-              <p class="kit-label">Escolha sua melhor opção</p>
-              <div class="kit-options" role="radiogroup" aria-label="Quantidade">
-                <button class="kit-opt is-on" role="radio" aria-checked="true" data-qty="1" data-price="129">
-                  <span class="q">1 unidade</span>
-                  <span class="p">R$ 129</span>
-                  <span class="e">R$ 129,00 / un.</span>
-                </button>
-                <button class="kit-opt" role="radio" aria-checked="false" data-qty="2" data-price="119">
-                  <span class="tag">Mais vendido</span>
-                  <span class="q">2 unidades</span>
-                  <span class="p">R$ 238</span>
-                  <span class="e">R$ 119,00 / un.</span>
-                </button>
-                <button class="kit-opt hot" role="radio" aria-checked="false" data-qty="3" data-price="109">
-                  <span class="tag">Maior economia</span>
-                  <span class="q">3 unidades</span>
-                  <span class="p">R$ 327</span>
-                  <span class="e">R$ 109,00 / un.</span>
-                </button>
-              </div>
-
-              <div class="kit-save-line">
-                <span>Total <b id="kitTotal">R$ 129,00</b></span>
-                <span class="kit-save" id="kitSave">Preço de 1 unidade</span>
-              </div>
-              <button class="kit-add" id="kitAdd">Adicionar ao carrinho</button>
-              <div class="kit-foot">
-                <span>Frete grátis acima de R$ 199</span>
-                <span>Troca grátis</span>
-                <span>Compra segura</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- CART -->
-        <div class="demo-panel" role="tabpanel" id="panel-cart" aria-labelledby="tab-cart" hidden>
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">sualoja.com.br/cart</span></div>
-            <div class="browser-body cart-demo">
-              <div class="cart-title">Seu carrinho <span id="cartCount">2 itens</span></div>
-
-              <div class="cart-item">
-                <div class="cart-thumb ci-thumb-1"></div>
-                <div>
-                  <p class="ci-name">Sérum Vitamina C 30ml</p>
-                  <p class="ci-sub">1 unidade</p>
-                </div>
-                <span class="ci-price">R$ 89,00</span>
-              </div>
-              <div class="cart-item">
-                <div class="cart-thumb ci-thumb-2"></div>
-                <div>
-                  <p class="ci-name">Manteiga Corporal 200g</p>
-                  <p class="ci-sub">1 unidade</p>
-                </div>
-                <span class="ci-price">R$ 69,00</span>
-              </div>
-
-              <div class="cart-item gift" id="cartGift" hidden>
-                <div class="cart-thumb ci-thumb-3"></div>
-                <div>
-                  <p class="ci-name">Sérum mini 10ml</p>
-                  <p class="ci-sub">Brinde do cupom</p>
-                </div>
-                <span class="ci-price">Grátis</span>
-              </div>
-
-              <div class="cart-coupon">
-                <input type="text" id="cartInput" placeholder="Cupom de desconto" aria-label="Cupom de desconto" autocomplete="off">
-                <button id="cartApply">Aplicar</button>
-              </div>
-              <p class="cart-hint" id="cartHint">Dica: use o cupom PRESENTE</p>
-
-              <div class="cart-total">
-                <div class="row"><span>Subtotal</span><span>R$ 158,00</span></div>
-                <div class="row discount" id="cartDiscount" hidden><span>Desconto (10%)</span><span>− R$ 15,80</span></div>
-                <div class="row big"><span>Total</span><span id="cartTotal">R$ 158,00</span></div>
-              </div>
-              <button class="cart-checkout">Finalizar compra</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- SEARCH -->
-        <div class="demo-panel" role="tabpanel" id="panel-search" aria-labelledby="tab-search" hidden>
-          <div class="browser">
-            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">sualoja.com.br/search</span></div>
-            <div class="browser-body">
-              <div class="search-box">
-                <svg class="search-ico" viewBox="0 0 24 24" fill="none" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
-                <input type="text" id="searchInput" placeholder="Buscar produtos…" aria-label="Buscar produtos" autocomplete="off">
-              </div>
-              <p class="search-count" id="searchCount">6 produtos</p>
-              <div class="search-results" id="searchResults"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- textos -->
-      <div class="demo-copy">
-        <div class="demo-text" id="copy-kit">
-          <h3>Seletor de kits.</h3>
-          <p>Troca preço, economia e badge conforme o kit escolhido — sem recarregar a página e sem depender de app.</p>
-          <ul class="demo-list">
-            <li>Liquid + JavaScript puro, zero dependência</li>
-            <li>Preço por unidade recalculado em tempo real</li>
-            <li>Compatível com variantes, metafields e kits</li>
-          </ul>
-        </div>
-        <div class="demo-text" id="copy-cart" hidden>
-          <h3>Brinde no carrinho.</h3>
-          <p>Cupom validado no carrinho, brinde adicionado automaticamente e desconto refletido no total — antes do checkout.</p>
-          <ul class="demo-list">
-            <li>Regra de brinde + desconto no mesmo fluxo</li>
-            <li>Feedback de erro sem recarregar a página</li>
-            <li>Estado sincronizado com o carrinho do Shopify</li>
-          </ul>
-        </div>
-        <div class="demo-text" id="copy-search" hidden>
-          <h3>Busca instantânea.</h3>
-          <p>Modal de busca próprio, com filtro em tempo real, contagem de resultados e estado vazio tratado.</p>
-          <ul class="demo-list">
-            <li>Debounce e normalização de acentos</li>
-            <li>Navegação por teclado e foco acessível</li>
-            <li>HTML, CSS e JS do zero — sem biblioteca</li>
-          </ul>
-        </div>
-
-        <p class="demo-note">Demonstrações reconstruídas. Os originais rodam em lojas reais.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec sec-alt" id="processo">
+<section class="sec" id="processo">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">Processo</span>
@@ -1397,7 +1144,7 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card, .browser, .t
   </div>
 </section>
 
-<section class="sec proof" id="numeros">
+<section class="sec sec-alt proof" id="numeros">
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow">Em números</span>
@@ -1663,169 +1410,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
-
-/* ── HELPERS ── */
-const brl = (v) => 'R$ ' + v.toFixed(2).replace('.', ',');
-
-/* ── DEMO: KIT ── */
-(() => {
-  const opts = [...document.querySelectorAll('.kit-opt')];
-  const totalEl = document.getElementById('kitTotal');
-  const saveEl = document.getElementById('kitSave');
-  const addEl = document.getElementById('kitAdd');
-  const BASE = 129;
-
-  opts.forEach(btn => {
-    btn.addEventListener('click', () => {
-      opts.forEach(b => {
-        const on = b === btn;
-        b.classList.toggle('is-on', on);
-        b.setAttribute('aria-checked', String(on));
-      });
-      const qty = +btn.dataset.qty;
-      const price = +btn.dataset.price;
-      const total = qty * price;
-      const save = BASE * qty - total;
-      totalEl.textContent = brl(total);
-      saveEl.textContent = save > 0
-        ? 'Você economiza ' + brl(save)
-        : 'Preço de 1 unidade';
-    });
-  });
-
-  let timer;
-  addEl.addEventListener('click', () => {
-    const original = 'Adicionar ao carrinho';
-    addEl.classList.add('done');
-    addEl.textContent = 'Adicionado ✓';
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      addEl.classList.remove('done');
-      addEl.textContent = original;
-    }, 1800);
-  });
-})();
-
-/* ── DEMO: CARRINHO ── */
-(() => {
-  const input = document.getElementById('cartInput');
-  const apply = document.getElementById('cartApply');
-  const hint = document.getElementById('cartHint');
-  const gift = document.getElementById('cartGift');
-  const discount = document.getElementById('cartDiscount');
-  const total = document.getElementById('cartTotal');
-  const count = document.getElementById('cartCount');
-  const SUBTOTAL = 158;
-  let applied = false;
-
-  const setHint = (text, cls) => {
-    hint.textContent = text;
-    hint.className = 'cart-hint' + (cls ? ' ' + cls : '');
-  };
-
-  const run = () => {
-    const value = input.value.trim().toUpperCase();
-    if (!value) { setHint('Digite um cupom para testar.', 'err'); return; }
-    if (value === 'PRESENTE') {
-      if (applied) { setHint('Cupom já aplicado neste carrinho.', 'ok'); return; }
-      applied = true;
-      const off = SUBTOTAL * 0.1;
-      gift.hidden = false;
-      discount.hidden = false;
-      total.textContent = brl(SUBTOTAL - off);
-      count.textContent = '3 itens';
-      setHint('Cupom aplicado — brinde adicionado.', 'ok');
-      input.value = 'PRESENTE';
-      input.setAttribute('readonly', 'readonly');
-      apply.textContent = 'Aplicado';
-    } else {
-      setHint('Cupom inválido. Tente PRESENTE.', 'err');
-    }
-  };
-
-  apply.addEventListener('click', run);
-  input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
-})();
-
-/* ── DEMO: BUSCA ── */
-(() => {
-  const input = document.getElementById('searchInput');
-  const list = document.getElementById('searchResults');
-  const count = document.getElementById('searchCount');
-  const products = [
-    { name: 'Creatina Pura 300g', cat: 'Suplementos', price: 129, c: '#DCE9F2' },
-    { name: 'Sérum Vitamina C 30ml', cat: 'Skincare', price: 89, c: '#F6C7B8' },
-    { name: 'Manteiga Corporal 200g', cat: 'Skincare', price: 69, c: '#D9E3C8' },
-    { name: 'Kit Antissinais', cat: 'Kits', price: 199, c: '#E8DDF5' },
-    { name: 'Camiseta Matcha', cat: 'Moda', price: 79, c: '#CFE0CF' },
-    { name: 'Bota Winter', cat: 'Calçados', price: 349, c: '#E6DCCF' },
-  ];
-
-  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
-  const render = (q) => {
-    const term = norm(q.trim());
-    const found = products.filter(p => !term || norm(p.name + ' ' + p.cat).includes(term));
-    count.textContent = found.length + (found.length === 1 ? ' produto' : ' produtos');
-    list.innerHTML = found.length
-      ? found.map(p => `
-        <div class="search-row">
-          <span class="sr-thumb" style="background:${p.c}"></span>
-          <div><div class="sr-name">${p.name}</div><div class="sr-cat">${p.cat}</div></div>
-          <span class="sr-price">${brl(p.price)}</span>
-        </div>`).join('')
-      : '<div class="search-empty">Nenhum produto encontrado.<br>Tente outro termo.</div>';
-  };
-
-  let t;
-  input.addEventListener('input', () => {
-    clearTimeout(t);
-    t = setTimeout(() => render(input.value), 120);
-  });
-  input.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { input.value = ''; render(''); }
-  });
-  render('');
-})();
-
-/* ── TABS ── */
-(() => {
-  const tabs = [...document.querySelectorAll('.tab')];
-  const panels = {
-    kit: document.getElementById('panel-kit'),
-    cart: document.getElementById('panel-cart'),
-    search: document.getElementById('panel-search'),
-  };
-  const copies = {
-    kit: document.getElementById('copy-kit'),
-    cart: document.getElementById('copy-cart'),
-    search: document.getElementById('copy-search'),
-  };
-
-  const select = (key) => {
-    tabs.forEach(t => {
-      const on = t.id === 'tab-' + key;
-      t.setAttribute('aria-selected', String(on));
-      t.tabIndex = on ? 0 : -1;
-    });
-    Object.entries(panels).forEach(([k, el]) => { el.hidden = k !== key; });
-    Object.entries(copies).forEach(([k, el]) => { el.hidden = k !== key; });
-  };
-
-  tabs.forEach((tab, i) => {
-    tab.addEventListener('click', () => select(tab.id.replace('tab-', '')));
-    tab.addEventListener('keydown', e => {
-      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
-      e.preventDefault();
-      const next = (i + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
-      tabs[next].focus();
-      select(tabs[next].id.replace('tab-', ''));
-    });
-  });
-})();
-
-
-
 
 /* ── MODO NOTURNO ── */
 (function () {
