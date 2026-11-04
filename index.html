@@ -1188,6 +1188,22 @@ footer {
   .process { grid-template-columns: 1fr; }
   .tab { font-size: 13px; padding: 9px 14px; }
 }
+
+/* ─── SOLUÇÕES ─── */
+.sol-wrap { margin-top: 120px; }
+.sol-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); border-radius: calc(var(--radius) + 2px); overflow: hidden; }
+.sol-card { background: var(--bg); padding: 28px 24px; transition: background .3s; }
+.sol-card:hover { background: #fbfbfd; }
+.sol-tag { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
+.sol-card h4 { font-size: 17px; font-weight: 700; letter-spacing: -0.02em; margin: 10px 0 6px; }
+.sol-card p { font-size: 14px; color: var(--text-2); line-height: 1.55; }
+.integ { display: flex; gap: 24px; align-items: baseline; margin-top: 40px; }
+@media (max-width: 860px) {
+  .sol-wrap { margin-top: 88px; }
+  .sol-grid { grid-template-columns: 1fr 1fr; }
+  .integ { flex-direction: column; gap: 14px; }
+}
+@media (max-width: 520px) { .sol-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -1295,20 +1311,6 @@ footer {
     </div>
     <div class="work-grid">
       <article class="work-card reveal">
-        <a class="work-link" href="https://neobodynutrition.com.br/" target="_blank" rel="noopener">
-          <div class="shot">
-            <img src="images/neobody.webp" alt="Site Neobody Nutrition" loading="lazy" width="1440" height="900">
-            <span class="shot-open">Abrir site ↗</span>
-          </div>
-          <div class="work-info">
-            <p class="work-cat">Suplementos · Nuvemshop</p>
-            <h3 class="work-name">Neobody Nutrition</h3>
-            <p class="work-desc">Tema customizado com página de produto reconstruída, seletor de kits e upsell inline.</p>
-            <ul class="chips"><li>Tema</li><li>PDP</li><li>JavaScript</li></ul>
-          </div>
-        </a>
-      </article>
-      <article class="work-card reveal" style="transition-delay:0.1s">
         <a class="work-link" href="https://bisyou.com.br/" target="_blank" rel="noopener">
           <div class="shot">
             <img src="images/bisyou.webp" alt="Site Bisyou" loading="lazy" width="1440" height="900">
@@ -1317,12 +1319,12 @@ footer {
           <div class="work-info">
             <p class="work-cat">Skincare · Shopify</p>
             <h3 class="work-name">Bisyou</h3>
-            <p class="work-desc">Seletor de volumetria, tag de oferta no seletor de variantes, sticky buy e brindes no carrinho.</p>
-            <ul class="chips"><li>Liquid</li><li>Componentes</li><li>CRO</li></ul>
+            <p class="work-desc">Tema próprio, checkout Yampi sem travamentos, pedidos integrados ao ERP e modo Black Friday.</p>
+            <ul class="chips"><li>Tema</li><li>Yampi</li><li>Omie ERP</li></ul>
           </div>
         </a>
       </article>
-      <article class="work-card reveal">
+      <article class="work-card reveal" style="transition-delay:0.1s">
         <a class="work-link" href="https://belletonn.com.br/" target="_blank" rel="noopener">
           <div class="shot">
             <img src="images/belletonn.webp" alt="Site Belletonn" loading="lazy" width="1440" height="900">
@@ -1331,12 +1333,12 @@ footer {
           <div class="work-info">
             <p class="work-cat">Beleza · Shopify</p>
             <h3 class="work-name">Belletonn</h3>
-            <p class="work-desc">Seletor de família de produtos, banners de campanha e PDP com preço comparativo.</p>
-            <ul class="chips"><li>Liquid</li><li>Metafields</li><li>Campanhas</li></ul>
+            <p class="work-desc">Seletor de família de produtos, dezenas de páginas de produto geradas em escala e carrinho lateral que converte.</p>
+            <ul class="chips"><li>Liquid</li><li>Metafields</li><li>Carrinho</li></ul>
           </div>
         </a>
       </article>
-      <article class="work-card reveal" style="transition-delay:0.1s">
+      <article class="work-card reveal">
         <a class="work-link" href="https://www.flueshop.com.br/" target="_blank" rel="noopener">
           <div class="shot">
             <img src="images/flueshop.webp" alt="Site Flue Shop" loading="lazy" width="1440" height="900">
@@ -1345,12 +1347,12 @@ footer {
           <div class="work-info">
             <p class="work-cat">Moda · Shopify</p>
             <h3 class="work-name">Flue Shop</h3>
-            <p class="work-desc">Tema próprio com landing pages de kits e uma biblioteca de seções reutilizáveis.</p>
-            <ul class="chips"><li>Tema</li><li>Seções</li><li>Kits</li></ul>
+            <p class="work-desc">Tema próprio com montador de kit em etapas, regras de brinde e frete grátis por região.</p>
+            <ul class="chips"><li>Tema</li><li>Kits</li><li>Brindes</li></ul>
           </div>
         </a>
       </article>
-      <article class="work-card reveal">
+      <article class="work-card reveal" style="transition-delay:0.1s">
         <a class="work-link" href="https://www.souly.com.br/" target="_blank" rel="noopener">
           <div class="shot">
             <img src="images/souly.webp" alt="Site Souly" loading="lazy" width="1440" height="900">
@@ -1359,42 +1361,74 @@ footer {
           <div class="work-info">
             <p class="work-cat">Alimentos · Nuvemshop</p>
             <h3 class="work-name">Souly</h3>
-            <p class="work-desc">Tema novo, hierarquia de preço na página de produto e carrinho sem fricção.</p>
-            <ul class="chips"><li>Tema</li><li>Carrinho</li></ul>
+            <p class="work-desc">Tema novo com seletor de kits, compre junto na página de produto e carrinho sem fricção.</p>
+            <ul class="chips"><li>Nuvemshop</li><li>Kits</li><li>Compre junto</li></ul>
+          </div>
+        </a>
+      </article>
+      <article class="work-card reveal">
+        <a class="work-link" href="https://neobodynutrition.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/neobody.webp" alt="Site Neobody Nutrition" loading="lazy" width="1440" height="900">
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <p class="work-cat">Suplementos · Nuvemshop</p>
+            <h3 class="work-name">Neobody Nutrition</h3>
+            <p class="work-desc">Tema customizado com foco em página de produto, kits e vídeos leves em streaming.</p>
+            <ul class="chips"><li>Nuvemshop</li><li>PDP</li><li>Vídeo HLS</li></ul>
           </div>
         </a>
       </article>
       <article class="work-card reveal" style="transition-delay:0.1s">
-        <a class="work-link" href="https://useferus.com.br/" target="_blank" rel="noopener">
+        <a class="work-link" href="https://usehiven.com.br/" target="_blank" rel="noopener">
           <div class="shot">
-            <img src="images/ferus.webp" alt="Site Férus" loading="lazy" width="1440" height="900">
+            <img src="images/hiven.webp" alt="Site Hiven" loading="lazy" width="1440" height="900">
             <span class="shot-open">Abrir site ↗</span>
           </div>
           <div class="work-info">
-            <p class="work-cat">Grooming · Nuvemshop</p>
-            <h3 class="work-name">Férus</h3>
-            <p class="work-desc">Templates de produto sob medida, bloco de frete compacto e layout consistente no mobile.</p>
-            <ul class="chips"><li>PDP</li><li>Mobile first</li></ul>
+            <p class="work-cat">Cosméticos · Shopify</p>
+            <h3 class="work-name">Hiven</h3>
+            <p class="work-desc">Loja de cuidados capilares com linhas, combos e campanhas na vitrine.</p>
+            <ul class="chips"><li>Shopify</li><li>Vitrine</li></ul>
+          </div>
+        </a>
+      </article>
+      <article class="work-card reveal">
+        <a class="work-link" href="https://www.basicpro.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/basic.webp" alt="Site Basic Pro" loading="lazy" width="1440" height="900">
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <p class="work-cat">Moda · Shopify</p>
+            <h3 class="work-name">Basic Pro</h3>
+            <p class="work-desc">Vídeos estilo stories na página de produto, com player em tela cheia e compra rápida.</p>
+            <ul class="chips"><li>Stories</li><li>PDP</li></ul>
+          </div>
+        </a>
+      </article>
+      <article class="work-card reveal" style="transition-delay:0.1s">
+        <a class="work-link" href="https://notmeshoes.com.br/" target="_blank" rel="noopener">
+          <div class="shot">
+            <img src="images/notme.webp" alt="Site Not Me Shoes" loading="lazy" width="1440" height="900">
+            <span class="shot-open">Abrir site ↗</span>
+          </div>
+          <div class="work-info">
+            <p class="work-cat">Calçados · Shopify</p>
+            <h3 class="work-name">Not Me Shoes</h3>
+            <p class="work-desc">Loja brasileira e versão internacional em inglês para os Estados Unidos.</p>
+            <ul class="chips"><li>Shopify</li><li>Internacional</li></ul>
           </div>
         </a>
       </article>
     </div>
     <div class="more-list reveal">
-      <a class="more-row" href="https://www.basicpro.com.br/" target="_blank" rel="noopener">
-        <span class="more-name">Basic Pro<small>Shopify</small></span>
-        <span class="more-desc">Carrinho drawer, hierarquia de subtotal e ajustes de vitrine.</span>
-        <span class="more-arrow">↗</span>
-      </a>
-      <a class="more-row" href="https://notmeshoes.com.br/" target="_blank" rel="noopener">
-        <span class="more-name">Not Me Shoes<small>Shopify</small></span>
-        <span class="more-desc">Carrinho v2 e versão internacional da loja (EUA).</span>
-        <span class="more-arrow">↗</span>
-      </a>
-      <a class="more-row" href="https://wavemaceleradora.com.br/" target="_blank" rel="noopener">
-        <span class="more-name">Wave M<small>Site</small></span>
-        <span class="more-desc">Site institucional da aceleradora de e-commerce.</span>
-        <span class="more-arrow">↗</span>
-      </a>
+      <div class="more-row">
+        <span class="more-name">Savannah<small>Shopify</small></span>
+        <span class="more-desc">Visual escuro e minimalista com seções próprias e template de produto.</span>
+        <span class="more-arrow"></span>
+      </div>
     </div>
   </div>
 </section>
@@ -1566,6 +1600,35 @@ footer {
         </div>
       </div>
     </div>
+  
+    <div class="sol-wrap">
+      <div class="block-header reveal" style="margin-bottom:48px">
+        <h3 class="section-title" style="font-size:clamp(28px,4vw,40px)">E muito mais no dia a dia.</h3>
+        <p class="section-body">Soluções que já entreguei em lojas reais.</p>
+      </div>
+      <div class="sol-grid">
+        <div class="sol-card reveal"><span class="sol-tag">Componente</span><h4>Seletor de volume</h4><p>Troca entre tamanhos e kits na página do produto, atualizando preço, parcelas e economia na hora.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Componente</span><h4>Kits por quantidade</h4><p>Leve 1, 2, 3 ou mais com a economia calculada sobre o preço unitário.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Componente</span><h4>Montador de kit</h4><p>Assistente em etapas: kit, cor e tamanho de cada peça, brinde e resumo com total ao vivo.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Componente</span><h4>Compre junto</h4><p>Produtos complementares que entram no carrinho junto com o principal, com total em tempo real.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Componente</span><h4>Carrinho que converte</h4><p>Carrinho lateral com sugestões, atalho para o frete grátis e troca de tamanho sem sair dele.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Componente</span><h4>Frete grátis por região</h4><p>Barra de progresso que reconhece a região pelo CEP e aplica o limite certo de frete grátis.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Componente</span><h4>Vídeos estilo stories</h4><p>Bolinhas de vídeo na página do produto que abrem em tela cheia com swipe e compra rápida.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Componente</span><h4>Modo campanha</h4><p>Black Friday liga e desliga pelo editor: faixa animada, selos de desconto, timer e tema escuro.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Checkout</span><h4>Checkout sem travar</h4><p>Correção do "carregando infinito" no checkout Yampi: link gerado antes do clique e nova tentativa automática.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Checkout</span><h4>Migração de checkout</h4><p>Troca de checkout externo sem perder o carrinho e sem vazamentos para o checkout nativo.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Checkout</span><h4>Regras de brinde</h4><p>Brinde por cupom ou por quantidade aparece já no carrinho, com limite por pedido.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Integração</span><h4>Pedidos no ERP</h4><p>Cada pedido pago vai sozinho para o Omie via Shopify Flow, sem servidor e sem mensalidade.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Integração</span><h4>Origem da venda</h4><p>Registra de qual seção ou página saiu cada compra e leva essa informação até o pedido.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Performance</span><h4>Mídia leve</h4><p>Vídeo adaptativo, blur pré-processado e scripts adiados: menos da metade das requisições na página.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Automação</span><h4>Páginas em escala</h4><p>Gerador que cria e vincula dezenas de páginas de produto padronizadas, cada uma com sua cor e conteúdo.</p></div>
+        <div class="sol-card reveal"><span class="sol-tag">Ferramenta</span><h4>Monitor de lojas</h4><p>Painel com velocidade de todas as lojas a cada 6 h e varredura visual automática de bugs.</p></div>
+      </div>
+      <div class="integ reveal">
+        <span class="stack-title">Integrações e ferramentas</span>
+        <div class="stack-tags"><span>Shopify</span><span>Nuvemshop</span><span>Liquid</span><span>Twig</span><span>Yampi</span><span>Omie ERP</span><span>Shopify Flow</span><span>Admin GraphQL API</span><span>Nuvemshop API</span><span>EvolveHub</span><span>Judge.me</span><span>Stape · GTM</span><span>ViaCEP</span><span>hls.js</span><span>Playwright</span><span>GitHub Actions</span><span>Vercel</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1584,7 +1647,7 @@ footer {
     </div>
     <div class="stack-row reveal">
       <span class="stack-title">Ferramentas</span>
-      <div class="stack-tags"><span>Shopify</span><span>Nuvemshop</span><span>Liquid</span><span>JavaScript</span><span>HTML &amp; CSS</span><span>Metafields</span><span>Shopify CLI</span><span>Git</span><span>Figma</span><span>GA4</span><span>Core Web Vitals</span></div>
+      <div class="stack-tags"><span>Shopify</span><span>Nuvemshop</span><span>Liquid</span><span>JavaScript</span><span>HTML &amp; CSS</span><span>Metafields</span><span>Shopify CLI</span><span>Git</span><span>Figma</span><span>Core Web Vitals</span></div>
     </div>
   </div>
 </section>
