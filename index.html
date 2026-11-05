@@ -1061,6 +1061,20 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
   .stack-groups { grid-template-columns: 1fr 1fr; }
   .code-card pre { font-size: 11.5px; padding: 16px; }
 }
+
+/* ═══════════ MARCA GIGANTE NO RODAPÉ ═══════════ */
+footer { overflow: hidden; }
+.ft-word {
+  font-weight: 800; font-size: min(18.5vw, 208px); line-height: .95; letter-spacing: -0.06em;
+  text-align: center; white-space: nowrap; overflow: hidden; user-select: none;
+  padding: 48px 0 .06em; margin-bottom: 8px; color: var(--text);
+}
+.ft-word span { display: inline-block; transform: translateY(105%); transition: transform 1s cubic-bezier(0.22,1,0.36,1); transition-delay: calc(var(--i) * 70ms); }
+.ft-word .tld { color: var(--accent); }
+.footer-brand p .nav-tld { font-size: inherit; color: var(--accent); }
+footer.in .ft-word span { transform: none; }
+@media (max-width: 768px) { .ft-word { padding-top: 32px; } }
+@media (prefers-reduced-motion: reduce) { .ft-word span { transform: none; } }
 </style>
 </head>
 <body>
@@ -1339,18 +1353,19 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
 
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
+<footer id="ft">
+  <div class="footer-inner" id="ftIn">
     <div class="footer-top">
       <div class="footer-brand">
-        <p>ive.</p>
-        <span>Desenvolvedor front-end</span>
+        <p>kevyn<span class="nav-tld">.dev</span></p>
+        <span>Desenvolvedor</span>
       </div>
       <div class="footer-links">
         <div class="footer-col">
           <h4>Navegar</h4>
-          <a href="#trabalho">Trabalho</a>
-          <a href="#faco">O que eu faço</a>
+          <a href="#trabalho">Projetos</a>
+          <a href="#faco">O que faço</a>
+          <a href="#experiencia">Experiência</a>
           <a href="#sobre">Sobre</a>
         </div>
         
@@ -1368,6 +1383,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
         </div>
       </div>
     </div>
+    <div class="ft-word" aria-hidden="true"><span style="--i:0">k</span><span style="--i:1">e</span><span style="--i:2">v</span><span style="--i:3">y</span><span style="--i:4">n</span><span style="--i:5" class="tld">.</span><span style="--i:6" class="tld">d</span><span style="--i:7" class="tld">e</span><span style="--i:8" class="tld">v</span></div>
     <div class="footer-bottom">
       <span>© 2026 Todos os direitos reservados.</span>
       <span>CNPJ: 57.120.167/0001-03</span>
@@ -1600,6 +1616,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     set(next);
     try { localStorage.setItem('ive-theme', next); } catch (e) {}
   });
+})();
+
+/* ── RODAPÉ: SOBE COM A ROLAGEM + MARCA LETRA A LETRA ── */
+(function () {
+  const ft = document.getElementById('ft'), inner = document.getElementById('ftIn');
+  const word = ft && ft.querySelector('.ft-word');
+  if (!ft) return;
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) { ft.classList.add('in'); return; }
+  let last = -1;
+  const run = () => {
+    const vh = innerHeight, r = ft.getBoundingClientRect();
+    const p = Math.max(0, Math.min(1, (vh - r.top) / Math.min(vh * 0.85, r.height)));
+    if (word && p > 0 && !ft.classList.contains('in') && word.getBoundingClientRect().top < vh * 0.95) ft.classList.add('in');
+    if (p === last) return;
+    last = p;
+    inner.style.transform = `translate3d(0,${-(1 - p) * 140}px,0)`;
+    inner.style.opacity = (0.25 + 0.75 * p).toFixed(3);
+  };
+  addEventListener('scroll', run, { passive: true });
+  addEventListener('resize', run);
+  run();
 })();
 
 /* ── FAQ ── */
