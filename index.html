@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kevyn, desenvolvedor front-end. Interfaces, integrações e automações para e-commerce. Shopify Partner certificado.">
+<meta name="description" content="Kevyn, desenvolvedor. Front-end, integrações via API, automação de processos e dados. Shopify Partner certificado.">
 <meta name="theme-color" content="#ffffff" id="metaTheme">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTCVVH711H"></script>
@@ -14,11 +14,12 @@
 
   gtag('config', 'G-QTCVVH711H');
 </script>
-<title>ive. — Kevyn, desenvolvedor front-end</title>
+<title>ive. — Kevyn, desenvolvedor</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script>
 (function () {
   var t = null;
@@ -995,6 +996,71 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
 .theme-toggle .i-sun { opacity: 0; transform: rotate(-90deg) scale(.6); }
 :root[data-theme="dark"] .theme-toggle .i-moon { opacity: 0; transform: rotate(90deg) scale(.6); }
 :root[data-theme="dark"] .theme-toggle .i-sun { opacity: 1; transform: rotate(0) scale(1); }
+
+.work-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.work-tags span { font-size: 11.5px; color: var(--text-2); padding: 4px 10px; border-radius: 980px; background: var(--bg-2); box-shadow: inset 0 0 0 1px var(--border); }
+
+/* ═══════════ V1 TÉCNICA ═══════════ */
+:root { --mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+.eyebrow, .hero-eyebrow, .cap-num, .work-plat, .tools span, .work-tags span, .cert-badge, .stat-lbl, .xp-when, .stack-group h4, .bts-kind { font-family: var(--mono); letter-spacing: 0; }
+.hero-eyebrow { text-transform: none; font-weight: 500; }
+.eyebrow { font-weight: 500; font-size: 12.5px; }
+.code-card {
+  max-width: 560px; margin: 64px auto 0; text-align: left; border-radius: 16px; overflow: hidden;
+  background: var(--bg-2); box-shadow: 0 0 0 1px var(--border), 0 24px 60px rgba(0,0,0,.06);
+  opacity: 0; animation: fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) 1.25s forwards;
+}
+.code-bar { display: flex; align-items: center; gap: 7px; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+.code-bar i { width: 10px; height: 10px; border-radius: 50%; background: var(--bg-3); }
+.code-bar span { margin-left: 10px; font: 500 12px var(--mono); color: var(--text-3); }
+.code-card pre { margin: 0; padding: 20px 22px 22px; font: 13px/1.75 var(--mono); color: var(--text); overflow-x: auto; }
+.code-card .c { color: var(--text-3); } .code-card .k { color: var(--accent); } .code-card .s { color: #1a8a4a; }
+:root[data-theme="dark"] .code-card .s { color: #5fd38d; }
+:root[data-theme="dark"] .code-card { box-shadow: 0 0 0 1px var(--border); }
+
+/* por trás da tela */
+.bts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 120px; }
+.bts-head { grid-column: 1 / -1; margin-bottom: 24px; }
+.bts-head h3 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.04em; line-height: 1.08; }
+.bts-head h3 em { font-style: normal; color: var(--text-3); font-weight: 300; }
+.bts-head p { font-size: 17px; color: var(--text-2); margin-top: 12px; max-width: 560px; }
+.bts-card { background: var(--bg-2); border-radius: 20px; padding: 28px 26px; }
+.bts-kind { font-size: 12px; color: var(--accent); }
+.bts-card h4 { font-size: 19px; font-weight: 700; letter-spacing: -0.025em; margin: 10px 0 8px; line-height: 1.25; }
+.bts-card p { font-size: 14.5px; color: var(--text-2); line-height: 1.55; }
+.bts-card .work-tags span { background: var(--bg); }
+.bts-card:nth-child(3n+3) { transition-delay: .06s; } .bts-card:nth-child(3n+4) { transition-delay: .12s; }
+
+/* stack agrupada */
+.stack-groups { display: grid; grid-template-columns: repeat(5, 1fr); gap: 28px; margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border); }
+.stack-group h4 { font-size: 12px; font-weight: 500; color: var(--text-3); margin-bottom: 14px; }
+.stack-group ul { list-style: none; display: grid; gap: 7px; }
+.stack-group li { font-size: 14.5px; color: var(--text); }
+
+/* experiência */
+.xp { border-top: 1px solid var(--border); }
+.xp-row { display: grid; grid-template-columns: 200px 1fr; gap: 32px; padding: 40px 0; border-bottom: 1px solid var(--border); }
+.xp-when { font-size: 12.5px; color: var(--text-3); padding-top: 6px; }
+.nav-tld { color: var(--accent); }
+.xp-when b { display: block; color: var(--accent); font-weight: 500; margin-bottom: 4px; }
+.xp-role { font-size: clamp(22px, 2.4vw, 28px); font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+.xp-org { font-size: 15px; color: var(--text-2); margin-top: 4px; }
+.xp-row ul { list-style: none; margin-top: 18px; display: grid; gap: 8px; }
+.xp-row li { font-size: 15px; color: var(--text-2); display: flex; gap: 12px; align-items: baseline; line-height: 1.5; }
+.xp-row li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--accent); flex: 0 0 auto; transform: translateY(-2px); }
+.xp-li { display: inline-block; margin-top: 32px; font: 500 13px var(--mono); color: var(--accent); text-decoration: none; }
+
+.about-gh { display: inline-block; margin-top: 28px; margin-right: 22px; font: 500 13px var(--mono); color: var(--accent); text-decoration: none; }
+@media (max-width: 860px) {
+  .bts { grid-template-columns: 1fr 1fr; }
+  .stack-groups { grid-template-columns: repeat(3, 1fr); }
+  .xp-row { grid-template-columns: 1fr; gap: 10px; padding: 32px 0; }
+}
+@media (max-width: 520px) {
+  .bts { grid-template-columns: 1fr; }
+  .stack-groups { grid-template-columns: 1fr 1fr; }
+  .code-card pre { font-size: 11.5px; padding: 16px; }
+}
 </style>
 </head>
 <body>
@@ -1004,10 +1070,11 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
 
 <header id="hdr">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">ive.</a>
+    <a href="#" class="nav-logo">kevyn<span class="nav-tld">.dev</span></a>
     <nav>
-      <a href="#trabalho">Trabalho<span class="nav-dot"></span></a>
-      <a href="#faco">O que eu faço<span class="nav-dot"></span></a>
+      <a href="#trabalho">Projetos<span class="nav-dot"></span></a>
+      <a href="#faco">O que faço<span class="nav-dot"></span></a>
+      <a href="#experiencia">Experiência<span class="nav-dot"></span></a>
       <a href="#sobre">Sobre<span class="nav-dot"></span></a>
       <a href="https://wa.me/5512991962238" class="nav-cta">Contato ↗</a>
     </nav>
@@ -1021,12 +1088,23 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
 <section class="hero" id="home">
   <div class="hero-bg"><div class="hero-orb hero-orb-1"></div><div class="hero-orb hero-orb-2"></div></div>
   <div class="hero-content">
-    <span class="hero-eyebrow"><span class="eyebrow-dot"></span>Desenvolvedor front-end</span>
-    <h1>Código simples.<br><em>Feito com cuidado.</em></h1>
-    <p class="hero-sub">Sou Kevyn. Crio interfaces, integrações e automações para <span style="white-space:nowrap">e-commerce</span>.</p>
+    <span class="hero-eyebrow"><span class="eyebrow-dot"></span>dev · front-end · integrações · automação</span>
+    <h1>Software que resolve.<br><em>Da tela ao processo.</em></h1>
+    <p class="hero-sub">Sou Kevyn, desenvolvedor. Construo interfaces, integro sistemas e automatizo processos: sites, lojas, fluxos internos e ferramentas de dados.</p>
     <div class="hero-actions">
-      <a href="#trabalho" class="btn-primary" id="mainCta">Ver trabalho</a>
+      <a href="#trabalho" class="btn-primary" id="mainCta">Ver projetos</a>
       <a href="https://wa.me/5512991962238" class="btn-secondary">Falar comigo ↗</a>
+    </div>
+    <div class="code-card">
+      <div class="code-bar"><i></i><i></i><i></i><span>api/orders-paid.js</span></div>
+<pre><span class="c">// pedido pago → ERP + planilha + aviso no time</span>
+app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, <span class="k">async</span> (req, res) => {
+  <span class="k">const</span> order = normalize(req.body);
+  <span class="k">await</span> erp.createOrder(order);
+  <span class="k">await</span> sheets.append(<span class="s">'vendas'</span>, order);
+  <span class="k">await</span> notify(<span class="s">'#operacao'</span>, order.id);
+  res.sendStatus(<span class="s">200</span>);
+});</pre>
     </div>
   </div>
   <div class="scroll-hint"><span>Rolar</span><div class="scroll-line"></div></div>
@@ -1035,95 +1113,104 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
 <section class="sec" id="trabalho">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Trabalho</span>
-      <h2 class="big">Em produção.<br><em>Todos os dias.</em></h2>
-      <p class="lead">Lojas reais, rodando código que eu escrevi.</p>
+      <span class="eyebrow">// projetos</span>
+      <h2 class="big">Em produção.<br><em>Na tela e por trás dela.</em></h2>
+      <p class="lead">Uma parte do que está no ar. Muito do meu trabalho não aparece em print: roda entre sistemas.</p>
     </div>
     <div class="work-grid">
       <a class="work-card reveal" href="https://bisyou.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/bisyou.webp" alt="Site Bisyou" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Bisyou</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">Tema próprio, checkout que não trava e pedidos que chegam sozinhos ao ERP.</p>
+        <p class="work-desc">Tema custom em Liquid, checkout Yampi estabilizado e pedidos sincronizados com o ERP Omie via Shopify Flow.</p><div class="work-tags"><span>Liquid</span><span>Shopify Flow</span><span>Omie API</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://belletonn.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/belletonn.webp" alt="Site Belletonn" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Belletonn</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">Seletor de família de produtos e dezenas de páginas geradas em escala.</p>
+        <p class="work-desc">Seletor de família por metafields e templates de produto gerados em lote via Admin GraphQL.</p><div class="work-tags"><span>Metafields</span><span>GraphQL</span><span>Node</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://www.flueshop.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/flueshop.webp" alt="Site Flue Shop" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Flue Shop</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">Tema próprio com montador de kit em etapas e regras de brinde.</p>
+        <p class="work-desc">Tema próprio com montador de kit em etapas, estado em JS e regras de brinde no carrinho.</p><div class="work-tags"><span>Liquid</span><span>Cart API</span><span>Vanilla JS</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://www.souly.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/souly.webp" alt="Site Souly" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Souly</h3><span class="work-plat">Nuvemshop</span></div>
-        <p class="work-desc">Tema novo com seletor de kits e compre junto na página de produto.</p>
+        <p class="work-desc">Tema Twig novo com seletor de kits e compre junto na PDP. Deploy via CLI.</p><div class="work-tags"><span>Twig</span><span>Nuvemshop CLI</span><span>JS</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://www.savannaahstore.com/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/savannah.webp" alt="Site Savannah" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Savannah</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">Um visual escuro e minimalista, com seções desenhadas uma a uma.</p>
+        <p class="work-desc">Seções escritas do zero, com schema configurável no editor e zero dependências.</p><div class="work-tags"><span>Liquid</span><span>Schema</span><span>CSS</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://neobodynutrition.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/neobody.webp" alt="Site Neobody Nutrition" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Neobody Nutrition</h3><span class="work-plat">Nuvemshop</span></div>
-        <p class="work-desc">Página de produto, kits e vídeo leve em streaming.</p>
+        <p class="work-desc">PDP com kits e vídeo em HLS adaptativo para caber no limite de arquivo da plataforma.</p><div class="work-tags"><span>Twig</span><span>HLS</span><span>Performance</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://usehiven.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/hiven.webp" alt="Site Hiven" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Hiven</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">Loja de cuidados capilares, com linhas, combos e campanhas.</p>
+        <p class="work-desc">Linhas, combos e campanhas montados por blocos reutilizáveis no editor.</p><div class="work-tags"><span>Liquid</span><span>Blocks</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://www.basicpro.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/basic.webp" alt="Site Basic Pro" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Basic Pro</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">Vídeos estilo stories, com tela cheia e compra rápida.</p>
+        <p class="work-desc">Vídeos estilo stories em tela cheia com quick-add direto no carrinho.</p><div class="work-tags"><span>JS</span><span>Cart API</span><span>Video</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://notmeshoes.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/notme.webp" alt="Site Not Me Shoes" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Not Me Shoes</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">A loja brasileira e sua versão em inglês para os Estados Unidos.</p>
+        <p class="work-desc">Loja BR e versão EN para os EUA, a partir do mesmo código-base.</p><div class="work-tags"><span>Liquid</span><span>Multi-loja</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://useferus.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/ferus.webp" alt="Site Férus" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Férus</h3><span class="work-plat">Nuvemshop</span></div>
-        <p class="work-desc">Templates de produto sob medida, bloco de frete compacto e campanhas de Black.</p>
+        <p class="work-desc">Templates de produto por arquivo, bloco de frete compacto e modo campanha.</p><div class="work-tags"><span>Twig</span><span>Templates</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://usebc.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/bc.webp" alt="Site Beach &amp; Country" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Beach &amp; Country</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">Preço por quantidade e ajustes de navegação na loja.</p>
+        <p class="work-desc">Preço por quantidade calculado no front e ajustes de navegação.</p><div class="work-tags"><span>Liquid</span><span>JS</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://www.usepopfix.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/popfix.webp" alt="Site PopFix" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">PopFix</h3><span class="work-plat">Nuvemshop</span></div>
-        <p class="work-desc">Soluções práticas para roupas, com página de produto direta ao ponto.</p>
+        <p class="work-desc">PDP enxuta em Twig, com foco em tempo de carga.</p><div class="work-tags"><span>Twig</span><span>Performance</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://mamalovesyou.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/mama.webp" alt="Site Mama Loves You" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">Mama Loves You</h3><span class="work-plat">Nuvemshop</span></div>
-        <p class="work-desc">Papel de parede e decoração infantil autoral.</p>
+        <p class="work-desc">Vitrine de catálogo autoral com navegação por categorias.</p><div class="work-tags"><span>Twig</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
       <a class="work-card reveal" href="https://www.oacessorio.com.br/" target="_blank" rel="noopener">
         <div class="shot"><img src="images/oacessorio.webp" alt="Site O Acessório" loading="lazy" width="1440" height="900"></div>
         <div class="work-meta"><h3 class="work-name">O Acessório</h3><span class="work-plat">Shopify</span></div>
-        <p class="work-desc">Joias e acessórios femininos, com vitrine de lives e campanhas.</p>
+        <p class="work-desc">Vitrine de lives e campanhas em seções reaproveitáveis.</p><div class="work-tags"><span>Liquid</span><span>Sections</span></div>
         <span class="work-go">Visitar site <i>↗</i></span>
       </a>
+    </div>
+    <div class="bts">
+      <div class="bts-head reveal"><h3>Por trás da tela.<br><em>Sem print, mas rodando.</em></h3><p>Integrações, automações e ferramentas internas.</p></div>
+      <div class="bts-card reveal"><span class="bts-kind">// integração</span><h4>Pedidos direto no ERP</h4><p>Pedido pago na loja vira pedido no Omie, sem digitação, com tags e status sincronizados.</p><div class="work-tags"><span>Shopify Flow</span><span>Webhooks</span><span>Omie API</span></div></div>
+      <div class="bts-card reveal"><span class="bts-kind">// automação</span><h4>Fluxos internos de agência</h4><p>Scripts e fluxos que tiraram tarefas manuais da operação e conectaram e-commerce, CRM e planilhas.</p><div class="work-tags"><span>n8n</span><span>Apps Script</span><span>HubSpot</span></div></div>
+      <div class="bts-card reveal"><span class="bts-kind">// dados</span><h4>Métricas de checkout</h4><p>Coleta de dados de checkout e vendas via API, consolidados em relatórios para decisão rápida.</p><div class="work-tags"><span>APIs</span><span>Node</span><span>Sheets</span></div></div>
+      <div class="bts-card reveal"><span class="bts-kind">// ferramenta</span><h4>Painel de monitoramento</h4><p>Um painel que acompanha código, velocidade e mudanças visuais de todos os sites que eu mantenho.</p><div class="work-tags"><span>Node</span><span>Playwright</span><span>Web Vitals</span></div></div>
+      <div class="bts-card reveal"><span class="bts-kind">// automação</span><h4>Páginas geradas em escala</h4><p>Dezenas de templates de produto criados a partir de dados, em vez de um por um no painel.</p><div class="work-tags"><span>Node</span><span>GraphQL</span><span>CLI</span></div></div>
+      <div class="bts-card reveal"><span class="bts-kind">// relatórios</span><h4>Relatórios automáticos</h4><p>Relatórios de desempenho gerados direto dos dados, prontos para enviar ao cliente.</p><div class="work-tags"><span>Python</span><span>PDF</span><span>APIs</span></div></div>
     </div>
   </div>
 </section>
@@ -1131,55 +1218,67 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
 <section class="sec sec-alt" id="faco">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">O que eu faço</span>
-      <h2 class="big">Quatro coisas.<br><em>Bem feitas.</em></h2>
+      <span class="eyebrow">// o que faço</span>
+      <h2 class="big">Quatro frentes.<br><em>Um jeito de trabalhar.</em></h2>
     </div>
     <div class="cap">
       <div class="cap-row reveal">
         <span class="cap-num">01</span>
-        <h3 class="cap-title">Interfaces</h3>
-        <div class="cap-body"><p>Componentes que parecem simples porque foram pensados até o fim.</p><ul class="cap-list"><li>Seletores de volume, família e kits</li><li>Montador de kit em etapas</li><li>Compre junto e carrinho lateral</li><li>Vídeos estilo stories</li><li>Modo campanha ligado pelo editor</li></ul></div>
+        <h3 class="cap-title">Front-end</h3>
+        <div class="cap-body"><p>Interfaces rápidas, acessíveis e fáceis de manter.</p><ul class="cap-list"><li>Sites, landing pages e temas de e-commerce</li><li>Componentes em HTML, CSS e JavaScript</li><li>Liquid e Twig com schema editável</li><li>Responsivo e testado em iOS, Android e desktop</li></ul></div>
       </div>
       <div class="cap-row reveal">
         <span class="cap-num">02</span>
         <h3 class="cap-title">Integrações</h3>
-        <div class="cap-body"><p>Loja, checkout e ERP falando a mesma língua.</p><ul class="cap-list"><li>Pedidos no ERP Omie via Shopify Flow</li><li>Checkout Yampi sem travamentos</li><li>Migração de checkout sem perder o carrinho</li><li>Origem de cada venda registrada no pedido</li><li>APIs, webhooks e Admin GraphQL</li></ul></div>
+        <div class="cap-body"><p>Sistemas diferentes falando a mesma língua.</p><ul class="cap-list"><li>APIs REST e GraphQL, webhooks</li><li>E-commerce, ERP, CRM e frete conectados</li><li>Shopify, Nuvemshop, Yampi, Olist, Bling, Omie, HubSpot</li><li>Dados de origem e tracking no lugar certo</li></ul></div>
       </div>
       <div class="cap-row reveal">
         <span class="cap-num">03</span>
         <h3 class="cap-title">Automação</h3>
-        <div class="cap-body"><p>O que é repetitivo, o código faz.</p><ul class="cap-list"><li>Dezenas de páginas de produto geradas de uma vez</li><li>Scripts em Node e Python</li><li>Rotinas agendadas no GitHub Actions</li><li>Coleta e relatórios de dados</li></ul></div>
+        <div class="cap-body"><p>Processo manual vira fluxo. Fluxo vira sistema.</p><ul class="cap-list"><li>Mapeamento de gargalos em processos internos</li><li>Fluxos em n8n e Google Apps Script</li><li>Scripts em Node e Python</li><li>Rotinas agendadas no GitHub Actions</li></ul></div>
       </div>
       <div class="cap-row reveal">
         <span class="cap-num">04</span>
-        <h3 class="cap-title">Performance</h3>
-        <div class="cap-body"><p>Rápido não é detalhe. É o produto.</p><ul class="cap-list"><li>Vídeo adaptativo e mídia leve</li><li>Core Web Vitals</li><li>Monitor de velocidade de todas as lojas</li><li>Testes visuais automáticos com Playwright</li></ul></div>
+        <h3 class="cap-title">Dados</h3>
+        <div class="cap-body"><p>Decisão rápida com número confiável.</p><ul class="cap-list"><li>Coleta de dados via API</li><li>Relatórios e planilhas automáticas</li><li>Dashboards em Streamlit</li><li>Tracking com GTM e Meta Pixel</li></ul></div>
       </div>
     </div>
-    <div class="tools reveal"><span>Shopify</span><span>Nuvemshop</span><span>Liquid</span><span>Twig</span><span>JavaScript</span><span>TypeScript</span><span>Node</span><span>Python</span><span>Yampi</span><span>Omie</span><span>Shopify Flow</span><span>GraphQL</span><span>Git</span><span>Playwright</span><span>Figma</span><span>Vercel</span></div>
+    <div class="stack-groups reveal"><div class="stack-group"><h4>front-end</h4><ul><li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>Liquid</li><li>Twig</li></ul></div><div class="stack-group"><h4>back e automação</h4><ul><li>Node</li><li>Python</li><li>n8n</li><li>Apps Script</li><li>REST</li><li>GraphQL</li></ul></div><div class="stack-group"><h4>plataformas</h4><ul><li>Shopify</li><li>Nuvemshop</li><li>Yampi</li><li>Olist</li><li>Bling</li><li>Omie</li></ul></div><div class="stack-group"><h4>dados e tracking</h4><ul><li>Google Sheets</li><li>Streamlit</li><li>GTM</li><li>Meta Pixel</li><li>HubSpot</li></ul></div><div class="stack-group"><h4>workflow</h4><ul><li>Git</li><li>GitHub Actions</li><li>Playwright</li><li>Figma</li><li>Vercel</li><li>Notion</li></ul></div></div>
   </div>
 </section>
 
-<section class="sec" id="processo">
+<section class="sec" id="experiencia">
   <div class="wrap">
     <div class="sec-head reveal">
-      <span class="eyebrow">Processo</span>
-      <h2 class="big">Do problema<br><em>ao ar.</em></h2>
+      <span class="eyebrow">// experiência</span>
+      <h2 class="big">Do tema à API.<br><em>Da API ao processo.</em></h2>
     </div>
-    <div class="steps reveal">
-      <div class="step"><h3>Entender</h3><p>Olho o código, a página e os números. Descubro o que realmente trava.</p></div>
-      <div class="step"><h3>Desenhar</h3><p>Defino a solução antes do código. Sem surpresa na entrega.</p></div>
-      <div class="step"><h3>Construir</h3><p>Ambiente de teste, Git e testes em iOS, Android e desktop.</p></div>
-      <div class="step"><h3>Entregar</h3><p>Publico, explico ao time e acompanho por 3 meses.</p></div>
+    <div class="xp">
+      <div class="xp-row reveal"><div class="xp-when"><b>● atual</b></div><div><h3 class="xp-role">Desenvolvedor</h3><div class="xp-org">Wave M Aceleradora</div><ul><li>Temas, componentes e páginas para as lojas da carteira</li><li>Integrações entre loja, checkout e ERP</li><li>Automações e ferramentas internas para o time</li></ul></div></div>
+      <div class="xp-row reveal"><div class="xp-when"><b>● atual</b>em paralelo</div><div><h3 class="xp-role">Desenvolvedor independente</h3><div class="xp-org">kevyn.dev · empresa própria · CNPJ 57.120.167/0001-03</div><ul><li>Projetos por fora, com contrato e nota fiscal</li><li>Front-end, integrações e automações para empresas e e-commerces</li><li>Shopify Partner certificado</li></ul></div></div>
+      <div class="xp-row reveal"><div class="xp-when">ago 2024 — mai 2025</div><div><h3 class="xp-role">Dev de Automação e Processos</h3><div class="xp-org">Vello Aceleradora de E-commerces</div><ul><li>Scripts e fluxos automatizados para processos internos</li><li>Integração de e-commerce, CRMs e sistemas via APIs e webhooks</li><li>Análise de processos e eliminação de gargalos com software</li><li>Sistemas de coleta, análise e relatórios de dados</li></ul></div></div>
+      <div class="xp-row reveal"><div class="xp-when">out 2023 — mai 2024</div><div><h3 class="xp-role">Desenvolvedor front-end</h3><div class="xp-org">Autônomo</div><ul><li>Interfaces responsivas em HTML, CSS e JavaScript</li><li>Boas práticas de usabilidade e design</li><li>Diagnóstico e correção de bugs</li></ul></div></div>
+      <div class="xp-row reveal"><div class="xp-when">dez 2022 — nov 2023</div><div><h3 class="xp-role">Web design e gestão de sites</h3><div class="xp-org">Agência LDO</div><ul><li>Personalização de temas para marca e negócio</li><li>Correção de erros e bugs</li><li>Otimização de conteúdo, imagens e produto</li></ul></div></div>
     </div>
+    <a class="xp-li reveal" href="https://www.linkedin.com/in/kevyn-jesus-334311288/" target="_blank" rel="noopener">linkedin.com/in/kevyn-jesus ↗</a>
   </div>
 </section>
 
-<section class="sec sec-alt proof" id="numeros">
+<section class="sec sec-alt" id="processo">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">// workflow</span>
+      <h2 class="big">Entender, especificar,<br><em>entregar.</em></h2>
+    </div>
+    <div class="steps reveal"><div class="step"><h3>Diagnóstico</h3><p>Leio o código, o processo e os dados antes de propor qualquer coisa.</p></div><div class="step"><h3>Spec</h3><p>Escopo e solução por escrito. Sem surpresa na entrega.</p></div><div class="step"><h3>Build</h3><p>Git, ambiente de teste e nada mexido direto em produção.</p></div><div class="step"><h3>Deploy</h3><p>Publico, documento para o time e acompanho por 3 meses.</p></div></div>
+  </div>
+</section>
+
+<section class="sec proof" id="numeros">
   <div class="wrap">
     <div class="sec-head center reveal">
-      <span class="eyebrow">Em números</span>
-      <h2 class="big">Quatro anos.<br><em>Muitas lojas.</em></h2>
+      <span class="eyebrow">// números</span>
+      <h2 class="big">4 anos.<br><em>Muito código no ar.</em></h2>
     </div>
   </div>
   <div class="stats-inner">
@@ -1198,12 +1297,13 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
       <div class="about-text">
         <span class="eyebrow reveal">Sobre</span>
         <h2 class="big reveal">Oi, eu sou<br>o Kevyn.</h2>
-        <p class="lead reveal">Desenvolvedor front-end. Gosto de resolver problema com código, e de deixar a solução tão simples que pareça óbvia.</p>
+        <p class="lead reveal">Desenvolvedor. Comecei no e-commerce e fui descendo a pilha: do tema à API, da API ao processo. Gosto de pegar trabalho manual e transformar em sistema.</p>
         <div class="certs-list">
           <div class="cert-row"><div><div class="cert-row-title">Shopify Partner</div><div class="cert-row-sub">Certificação oficial Shopify</div></div><span class="cert-badge">Certificado</span></div>
-          <div class="cert-row"><div><div class="cert-row-title">Front-end</div><div class="cert-row-sub">HTML, CSS, JavaScript, Liquid e Twig</div></div><span class="cert-badge">+4 anos</span></div>
-          <div class="cert-row"><div><div class="cert-row-title">Automação e integrações</div><div class="cert-row-sub">APIs, webhooks, Node e Python</div></div><span class="cert-badge">Especialidade</span></div>
+          <div class="cert-row"><div><div class="cert-row-title">Front-end</div><div class="cert-row-sub">HTML, CSS, JS, TypeScript, Liquid e Twig</div></div><span class="cert-badge">+4 anos</span></div>
+          <div class="cert-row"><div><div class="cert-row-title">Automação e integrações</div><div class="cert-row-sub">APIs, webhooks, n8n, Node e Python</div></div><span class="cert-badge">Especialidade</span></div>
         </div>
+        <a class="about-gh reveal" href="https://github.com/iKevyn" target="_blank" rel="noopener">github.com/iKevyn ↗</a>
       </div>
       <div class="about-visual">
         <div class="about-photo-wrap"><div class="photo-inner"><img src="lp/eu.jpg" alt="Kevyn" onerror="this.style.display='none'"></div></div>
@@ -1214,8 +1314,8 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
 
 <div class="cta-strip" id="contact">
   <div class="cta-inner">
-    <h2>Tem algo para construir?<br><span class="cta-accent">Vamos fazer direito.</span></h2>
-    <p class="reveal">Me conta o problema. Eu volto com o caminho.</p>
+    <h2>Uma interface, uma integração<br><span class="cta-accent">ou um processo manual?</span></h2>
+    <p class="reveal">Manda o contexto. Volto com escopo e prazo.</p>
     <a href="https://wa.me/5512991962238" class="btn-white reveal">Falar comigo ↗</a>
   </div>
 </div>
@@ -1224,15 +1324,15 @@ html, body, header, .sec-alt, footer, #faq, .stat-item, .work-card { transition:
   <div class="section-inner">
     <div class="faq-header reveal">
       <span class="eyebrow">Perguntas</span>
-      <h2 class="big" style="font-size:clamp(34px,4.6vw,52px)">Respostas curtas.</h2>
+      <h2 class="big" style="font-size:clamp(34px,4.6vw,52px)">Perguntas técnicas.</h2>
     </div>
     <div class="faq-list">
-        <div class="faq-item"><div class="faq-question"><span>Você trabalha só com Shopify?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Shopify é onde tenho mais estrada, mas também desenvolvo na Nuvemshop e em projetos fora de plataforma: sites, landing pages e ferramentas internas.</div></div>
-        <div class="faq-item"><div class="faq-question"><span>Posso contratar só uma parte?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Pode. Um componente, uma integração ou uma automação. Não precisa ser o projeto inteiro.</div></div>
-        <div class="faq-item"><div class="faq-question"><span>Você mexe em projetos que já existem?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">É a maior parte do trabalho: novos componentes, correções e melhorias de performance no que já está no ar.</div></div>
-        <div class="faq-item"><div class="faq-question"><span>Como funciona orçamento e pagamento?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Conversa → proposta com valor fixo → 50% no início e 50% na entrega. PIX, cartão ou boleto.</div></div>
-        <div class="faq-item"><div class="faq-question"><span>E depois da entrega?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">3 meses de suporte inclusos para bugs e ajustes. Depois, plano mensal ou sob demanda.</div></div>
-        <div class="faq-item"><div class="faq-question"><span>Você faz o design?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Trabalho com um designer parceiro, ou desenvolvo direto do seu Figma.</div></div>
+        <div class="faq-item"><div class="faq-question"><span>Você só trabalha com e-commerce?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Não. E-commerce é onde tenho mais estrada, mas também faço sites, landing pages, integrações entre sistemas, automações internas e ferramentas de dados.</div></div>
+        <div class="faq-item"><div class="faq-question"><span>Quais sistemas você já integrou?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Shopify, Nuvemshop, Yampi, Olist, Bling, Omie, Frenet, HubSpot, Google Sheets, WhatsApp Business e Meta, via APIs e webhooks.</div></div>
+        <div class="faq-item"><div class="faq-question"><span>No-code ou código?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Os dois. n8n e Apps Script quando resolvem rápido. Node e Python quando precisa de mais controle.</div></div>
+        <div class="faq-item"><div class="faq-question"><span>Você mexe direto em produção?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Não. Trabalho em ambiente de teste, versionado em Git, e só publico depois de aprovado.</div></div>
+        <div class="faq-item"><div class="faq-question"><span>Trabalha a partir de Figma?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Sim. Ou com um designer parceiro, se ainda não houver layout.</div></div>
+        <div class="faq-item"><div class="faq-question"><span>Orçamento e suporte?</span><div class="faq-icon-wrap"><svg viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div></div><div class="faq-answer">Valor fixo, 50% no início e 50% na entrega. 3 meses de suporte inclusos.</div></div>
     </div>
   </div>
 </section>
