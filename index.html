@@ -812,7 +812,7 @@ footer {
 .clients-header p { font-size: 26px; font-weight: 700; letter-spacing: -0.025em; color: var(--text); }
 
 .carousel-row { display: flex; width: max-content; }
-.carousel-row--fwd { animation: carouselFwd 32s linear infinite; }
+.carousel-row--fwd { animation: carouselFwd 80s linear infinite; }
 .carousel-row--rev { animation: carouselRev 36s linear infinite; margin-top: 10px; }
 .clients-band:hover .carousel-row { animation-play-state: paused; }
 
@@ -921,6 +921,8 @@ footer {
 .proof .logo-card { background: var(--bg); }
 .proof .clients-band::before { background: linear-gradient(to right, var(--bg-2) 0%, transparent 100%); }
 .proof .clients-band::after { background: linear-gradient(to left, var(--bg-2) 0%, transparent 100%); }
+.proof:not(.sec-alt) .clients-band::before { background: linear-gradient(to right, var(--bg) 0%, transparent 100%); }
+.proof:not(.sec-alt) .clients-band::after { background: linear-gradient(to left, var(--bg) 0%, transparent 100%); }
 
 /* sobre */
 .about-grid { gap: 96px; align-items: center; }
@@ -1459,13 +1461,21 @@ if (matchMedia('(pointer:fine)').matches) {
 })();
 /* ── CAROUSEL ── */
 const clients = [
-  { src: 'Logos/savannah.jpg',   alt: 'Savannah' },
-  { src: 'Logos/tangerina.png',  alt: 'Tangerina' },
+  { src: 'Logos/bisyou.svg',     alt: 'Bisyou' },
   { src: 'Logos/belletonn.png',  alt: 'Belletonn' },
+  { src: 'Logos/flueshop.png',   alt: 'Flue Shop' },
+  { src: 'Logos/souly.webp',     alt: 'Souly' },
+  { src: 'Logos/savannah.jpg',   alt: 'Savannah' },
+  { src: 'Logos/neobody.png',    alt: 'Neobody Nutrition' },
+  { src: 'Logos/hiven.png',      alt: 'Hiven' },
+  { src: 'Logos/basic.png',      alt: 'Basic Pro' },
   { src: 'Logos/notme.webp.png', alt: 'Not Me' },
-  { src: 'Logos/hiven.png', alt: 'Hiven' },
-  { src: 'Logos/basic.png', alt: 'Basic' },
-
+  { src: 'Logos/ferus.webp',     alt: 'Férus' },
+  { src: 'Logos/beach.png',      alt: 'Beach & Country' },
+  { src: 'Logos/popfix.webp',    alt: 'PopFix' },
+  { src: 'Logos/mama.webp',      alt: 'Mama Loves You' },
+  { src: 'Logos/oacessorio.png', alt: 'O Acessório' },
+  { src: 'Logos/tangerina.png',  alt: 'Tangerina' },
 ];
 
 function buildRow(el, items) {
