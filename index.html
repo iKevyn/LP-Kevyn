@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Kevyn, desenvolvedor. Front-end, integrações via API, automação de processos e dados. Shopify Partner certificado.">
+<meta name="description" content="Kevyn, desenvolvedor web pleno. Front-end, integrações via API, automação de processos e dados. Shopify Partner certificado.">
 <meta name="theme-color" content="#ffffff" id="metaTheme">
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QTCVVH711H"></script>
@@ -14,7 +14,7 @@
 
   gtag('config', 'G-QTCVVH711H');
 </script>
-<title>ive. — Kevyn, desenvolvedor</title>
+<title>ive. — Kevyn, desenvolvedor web pleno</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wdth,wght@0,75..125,200..900;1,75..125,200..900&display=swap" rel="stylesheet">
@@ -1141,20 +1141,19 @@ footer { position: relative; --pt: 60px; }
   <div class="hero-content">
     <span class="hero-eyebrow"><span class="eyebrow-dot"></span>dev · front-end · integrações · automação</span>
     <h1>Software que resolve.<br><em>Da tela ao processo.</em></h1>
-    <p class="hero-sub">Sou Kevyn, desenvolvedor. Construo interfaces, integro sistemas e automatizo processos: sites, lojas, fluxos internos e ferramentas de dados.</p>
+    <p class="hero-sub">Sou Kevyn, desenvolvedor web pleno. Construo interfaces, integro sistemas e automatizo processos: sites, lojas, fluxos internos e ferramentas de dados.</p>
     <div class="hero-actions">
       <a href="#trabalho" class="btn-primary" id="mainCta">Ver projetos</a>
       <a href="https://wa.me/5512991962238" class="btn-secondary">Falar comigo ↗</a>
     </div>
     <div class="code-card">
       <div class="code-bar"><i></i><i></i><i></i><span>api/orders-paid.js</span></div>
-<pre><span class="c">// pedido pago → ERP + planilha + aviso no time</span>
-app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, <span class="k">async</span> (req, res) => {
-  <span class="k">const</span> order = normalize(req.body);
-  <span class="k">await</span> erp.createOrder(order);
-  <span class="k">await</span> sheets.append(<span class="s">'vendas'</span>, order);
-  <span class="k">await</span> notify(<span class="s">'#operacao'</span>, order.id);
-  res.sendStatus(<span class="s">200</span>);
+<pre><span class="c">// pedido pago → fila → ERP + planilha + aviso</span>
+app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, verifyHmac, <span class="k">async</span> (req, res) => {
+  res.sendStatus(<span class="s">200</span>); <span class="c">// responde rápido, processa depois</span>
+  <span class="k">const</span> id = req.get(<span class="s">'X-Shopify-Webhook-Id'</span>);
+  <span class="k">if</span> (<span class="k">await</span> seen(id)) <span class="k">return</span>; <span class="c">// sem pedido duplicado</span>
+  <span class="k">await</span> queue.add(<span class="s">'order'</span>, normalize(req.body), { retries: <span class="s">5</span> });
 });</pre>
     </div>
   </div>
@@ -1305,7 +1304,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
       <h2 class="big">Do tema à API.<br><em>Da API ao processo.</em></h2>
     </div>
     <div class="xp">
-      <div class="xp-row reveal"><div class="xp-when"><b>● atual</b></div><div><h3 class="xp-role">Desenvolvedor</h3><div class="xp-org">Wave M Aceleradora</div><ul><li>Temas, componentes e páginas para as lojas da carteira</li><li>Integrações entre loja, checkout e ERP</li><li>Automações e ferramentas internas para o time</li></ul></div></div>
+      <div class="xp-row reveal"><div class="xp-when"><b>● atual</b></div><div><h3 class="xp-role">Desenvolvedor web pleno</h3><div class="xp-org">Wave M Aceleradora</div><ul><li>Temas, componentes e páginas para as lojas da carteira</li><li>Integrações entre loja, checkout e ERP</li><li>Automações e ferramentas internas para o time</li></ul></div></div>
       <div class="xp-row reveal"><div class="xp-when"><b>● atual</b>em paralelo</div><div><h3 class="xp-role">Desenvolvedor independente</h3><div class="xp-org">kevyn.dev · empresa própria · CNPJ 57.120.167/0001-03</div><ul><li>Projetos por fora, com contrato e nota fiscal</li><li>Front-end, integrações e automações para empresas e e-commerces</li><li>Shopify Partner certificado</li></ul></div></div>
       <div class="xp-row reveal"><div class="xp-when">ago 2024 — mai 2025</div><div><h3 class="xp-role">Dev de Automação e Processos</h3><div class="xp-org">Vello Aceleradora de E-commerces</div><ul><li>Scripts e fluxos automatizados para processos internos</li><li>Integração de e-commerce, CRMs e sistemas via APIs e webhooks</li><li>Análise de processos e eliminação de gargalos com software</li><li>Sistemas de coleta, análise e relatórios de dados</li></ul></div></div>
       <div class="xp-row reveal"><div class="xp-when">out 2023 — mai 2024</div><div><h3 class="xp-role">Desenvolvedor front-end</h3><div class="xp-org">Autônomo</div><ul><li>Interfaces responsivas em HTML, CSS e JavaScript</li><li>Boas práticas de usabilidade e design</li><li>Diagnóstico e correção de bugs</li></ul></div></div>
@@ -1333,9 +1332,9 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
     </div>
   </div>
   <div class="stats-inner">
-    <div class="stat-item"><div class="stat-num"><span class="counter" data-target="180">0</span>+</div><div class="stat-lbl">Lojas atendidas</div></div>
-    <div class="stat-item"><div class="stat-num"><span class="counter" data-target="60">0</span>+</div><div class="stat-lbl">Landing pages</div></div>
-    <div class="stat-item"><div class="stat-num"><span class="counter" data-target="4">0</span>+</div><div class="stat-lbl">Anos de código</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="counter" data-target="180">180</span>+</div><div class="stat-lbl">Lojas atendidas</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="counter" data-target="60">60</span>+</div><div class="stat-lbl">Landing pages</div></div>
+    <div class="stat-item"><div class="stat-num"><span class="counter" data-target="4">4</span>+</div><div class="stat-lbl">Anos de código</div></div>
   </div>
   <div class="clients-band" id="clientes">
     <div class="carousel-row carousel-row--fwd" id="row1"></div>
@@ -1436,7 +1435,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   const EN = {
     'Projetos': 'Work', 'O que faço': 'What I do', 'Experiência': 'Experience', 'Sobre': 'About', 'Contato ↗': 'Contact ↗',
     'dev · front-end · integrações · automação': 'dev · front-end · integrations · automation',
-    'Sou Kevyn, desenvolvedor. Construo interfaces, integro sistemas e automatizo processos: sites, lojas, fluxos internos e ferramentas de dados.': 'I’m Kevyn, a developer. I build interfaces, connect systems and automate processes: websites, stores, internal workflows and data tools.',
+    'Sou Kevyn, desenvolvedor web pleno. Construo interfaces, integro sistemas e automatizo processos: sites, lojas, fluxos internos e ferramentas de dados.': 'I’m Kevyn, a mid-level web developer. I build interfaces, connect systems and automate processes: websites, stores, internal workflows and data tools.',
     'Ver projetos': 'See work', 'Falar comigo ↗': 'Get in touch ↗', 'Rolar': 'Scroll',
     '// pedido pago → ERP + planilha + aviso no time': '// order paid → ERP + sheet + team alert',
     '// projetos': '// work',
@@ -1500,6 +1499,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
     'Do tema à API.': 'From theme to API.', 'Da API ao processo.': 'From API to process.',
     '● atual': '● current', 'em paralelo': 'in parallel',
     'Desenvolvedor': 'Developer',
+    'Desenvolvedor web pleno': 'Mid-level web developer',
     'Temas, componentes e páginas para as lojas da carteira': 'Themes, components and pages for the client stores',
     'Integrações entre loja, checkout e ERP': 'Integrations between store, checkout and ERP',
     'Automações e ferramentas internas para o time': 'Automations and internal tools for the team',
@@ -1565,8 +1565,8 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   };
   const ATTR_EN = {
     'Alternar modo noturno': 'Toggle dark mode',
-    'Kevyn, desenvolvedor. Front-end, integrações via API, automação de processos e dados. Shopify Partner certificado.': 'Kevyn, developer. Front-end, API integrations, process automation and data. Certified Shopify Partner.',
-    'ive. — Kevyn, desenvolvedor': 'ive. — Kevyn, developer'
+    'Kevyn, desenvolvedor web pleno. Front-end, integrações via API, automação de processos e dados. Shopify Partner certificado.': 'Kevyn, mid-level web developer. Front-end, API integrations, process automation and data. Certified Shopify Partner.',
+    'ive. — Kevyn, desenvolvedor web pleno': 'ive. — Kevyn, mid-level web developer'
   };
 
   const html = document.documentElement;
@@ -1717,6 +1717,7 @@ function animCount(el) {
 }
 
 /* ── INTERSECTION OBSERVER ── */
+document.querySelectorAll('.counter').forEach(c => c.textContent = '0');
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (!e.isIntersecting) return;
