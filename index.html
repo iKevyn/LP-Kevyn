@@ -812,8 +812,8 @@ footer {
 .clients-header p { font-size: 26px; font-weight: 700; letter-spacing: -0.025em; color: var(--text); }
 
 .carousel-row { display: flex; width: max-content; }
-.carousel-row--fwd { animation: carouselFwd 80s linear infinite; }
-.carousel-row--rev { animation: carouselRev 36s linear infinite; margin-top: 10px; }
+.carousel-row--fwd { animation: carouselFwd 46s linear infinite; }
+.carousel-row--rev { animation: carouselRev 42s linear infinite; margin-top: 14px; }
 .clients-band:hover .carousel-row { animation-play-state: paused; }
 
 @keyframes carouselFwd { from { transform: translateX(0); } to { transform: translateX(-50%); } }
@@ -1304,6 +1304,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   </div>
   <div class="clients-band" id="clientes">
     <div class="carousel-row carousel-row--fwd" id="row1"></div>
+    <div class="carousel-row carousel-row--rev" id="row2"></div>
   </div>
 </section>
 
@@ -1484,7 +1485,8 @@ function buildRow(el, items) {
   ).join('');
 }
 
-buildRow(document.getElementById('row1'), clients);
+buildRow(document.getElementById('row1'), clients.slice(0, 8));
+buildRow(document.getElementById('row2'), clients.slice(8));
 /* ── COUNTER ANIMATION ── */
 function animCount(el) {
   const target = parseInt(el.dataset.target);
