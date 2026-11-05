@@ -1077,6 +1077,18 @@ footer { overflow: hidden; }
 footer.in .ft-word span { transform: none; }
 @media (max-width: 768px) { .ft-word { padding-top: 32px; } }
 @media (prefers-reduced-motion: reduce) { .ft-word span { transform: none; } }
+
+/* ═══════════ SEÇÕES EM CARDS ═══════════ */
+.stack { position: relative; border-radius: 0 0 44px 44px; box-shadow: 0 28px 60px -20px rgba(0,0,0,.14); transform-origin: 50% 100%; will-change: transform; }
+.stack + .stack, .stack + footer { margin-top: -44px; padding-top: calc(var(--pt, 160px) + 44px); }
+#trabalho.stack { background: var(--bg); }
+#experiencia.stack, #numeros.stack, #sobre.stack { background: var(--bg); }
+.cta-strip.stack { --pt: 120px; }
+#faq.stack { --pt: 0px; }
+footer { position: relative; --pt: 60px; }
+.stack + .stack::before, .stack + footer::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: 100vh; background: inherit; pointer-events: none; }
+:root[data-theme="dark"] .stack { box-shadow: 0 1px 0 0 var(--border), 0 28px 60px -20px rgba(0,0,0,.6); }
+@media (max-width: 860px) { .stack { border-radius: 0 0 28px 28px; } .stack + .stack, .stack + footer { margin-top: -28px; padding-top: calc(var(--pt, 112px) + 28px); } }
 </style>
 </head>
 <body>
@@ -1126,7 +1138,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   <div class="scroll-hint"><span>Rolar</span><div class="scroll-line"></div></div>
 </section>
 
-<section class="sec" id="trabalho">
+<section class="stack sec" id="trabalho">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">// projetos</span>
@@ -1231,7 +1243,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   </div>
 </section>
 
-<section class="sec sec-alt" id="faco">
+<section class="stack sec sec-alt" id="faco">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">// o que faço</span>
@@ -1263,7 +1275,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   </div>
 </section>
 
-<section class="sec" id="experiencia">
+<section class="stack sec" id="experiencia">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">// experiência</span>
@@ -1280,7 +1292,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   </div>
 </section>
 
-<section class="sec sec-alt" id="processo">
+<section class="stack sec sec-alt" id="processo">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">// workflow</span>
@@ -1290,7 +1302,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   </div>
 </section>
 
-<section class="sec proof" id="numeros">
+<section class="stack sec proof" id="numeros">
   <div class="wrap">
     <div class="sec-head center reveal">
       <span class="eyebrow">// números</span>
@@ -1308,7 +1320,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   </div>
 </section>
 
-<section class="sec" id="sobre">
+<section class="stack sec" id="sobre">
   <div class="wrap">
     <div class="about-grid">
       <div class="about-text">
@@ -1329,7 +1341,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   </div>
 </section>
 
-<div class="cta-strip" id="contact">
+<div class="stack cta-strip" id="contact">
   <div class="cta-inner">
     <h2>Uma interface, uma integração<br><span class="cta-accent">ou um processo manual?</span></h2>
     <p class="reveal">Manda o contexto. Volto com escopo e prazo.</p>
@@ -1337,7 +1349,7 @@ app.<span class="k">post</span>(<span class="s">'/webhooks/orders-paid'</span>, 
   </div>
 </div>
 
-<section id="faq">
+<section class="stack" id="faq">
   <div class="section-inner">
     <div class="faq-header reveal">
       <span class="eyebrow">Perguntas</span>
@@ -1645,6 +1657,27 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   addEventListener('scroll', run, { passive: true });
   addEventListener('resize', run);
   run();
+})();
+
+
+/* ── SEÇÕES EM CARDS: encolhe ao sair, a próxima sobe ── */
+(function () {
+  const cards = [...document.querySelectorAll('.stack')];
+  cards.forEach((c, i) => { c.style.zIndex = 50 - i; });
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const next = c => c.nextElementSibling;
+  const run = () => {
+    const vh = innerHeight;
+    cards.forEach(c => {
+      const r = c.getBoundingClientRect();
+      // 0 quando o fundo do card está no pé da tela, 1 quando chegou a 35% da altura
+      const p = Math.max(0, Math.min(1, (vh - r.bottom) / (vh * 0.65)));
+      c.style.transform = p ? `scale(${1 - p * 0.04})` : '';
+      const n = next(c); const inner = n && (n.querySelector(':scope > .wrap, :scope > .section-inner, :scope > .cta-inner, :scope > .footer-inner'));
+      if (inner && n.id !== 'ft') inner.style.transform = `translate3d(0,${(1 - p) * 70}px,0)`;
+    });
+  };
+  addEventListener('scroll', run, { passive: true }); addEventListener('resize', run); run();
 })();
 
 /* ── FAQ ── */
